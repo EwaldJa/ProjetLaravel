@@ -45,7 +45,7 @@ class SecteurActiviteDAO extends DAO
         $leSecteurActivite->setIntituleSecteurActivite($objet->intitule_SecteurActivite);
         $leSecteurActivite->setDescriptionSecteurActivite($objet->description_SecteurActivite);
         //Il faut maintenant sélectionner les images associées au secteurActivite
-        $lesImages = $this->getLesImages($leSecteurActivite->getIdSecteurActivite());
+        $lesImages = $this->getLesImages($objet->id_SecteurActivite);
         //Si le secteurActivite possède des images
         if($lesImages){
             //On modifie l'attribut images_SecteurActivite de la classe iSecteurActivite
