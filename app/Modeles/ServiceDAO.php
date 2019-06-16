@@ -31,9 +31,10 @@ class ServiceDAO extends DAO
     public function getLesImages($id_Service) {
         $images = DB::table('images_services')->where('fk_Image', '=', $id_Service)->get();
         $lesImages = array();
+        $i = 0;
         foreach ($images as $limage) {
-            $id_Image = $limage->id_Image;
-            $lesImages[$id_Image] = $this->creerImageMetier($limage);
+            $lesImages[$i] = $this->creerImageMetier($limage);
+            $i = $i + 1;
         }
         return $lesImages;
     }
