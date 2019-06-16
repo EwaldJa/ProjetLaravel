@@ -3,33 +3,33 @@
 namespace App\Modeles;
 use DB;
 use App\Metier\Image;
-use App\Metier\Service;
+use App\Metier\Contact;
 
 class ContactDAO extends DAO
 {
 
-    public function getLesServices()
+    public function getLesContacts()
     {
-        $services = DB::table('services')->get();
-        $lesServices = array();
-        foreach ($services as $leService) {
-            $id_Service = $leService->id_Service;
-            $lesServices[$id_Service] = $this->creerObjetMetier($leService);
+        $contacts = DB::table('contacts')->get();
+        $lesContacts = array();
+        foreach ($contacts as $leContact) {
+            $id_Contact = $leContact->id_Contact;
+            $lesContacts[$id_Contact] = $this->creerObjetMetier($leContact);
         }
-        return $lesServices;
+        return $lesContacts;
     }
 
-    public function getServiceById($id_Service)
+    public function getContactById($id_Contact)
     {
-        //On sélectionne un service par son id.
+        //On sélectionne un contact par son id.
         //La requête ne retournant qu'une seule occurrence, on utilise la méthode first de Querybuilder
-        $monService = DB::table('services')->where('id_Service', '=', $id_Service)->first();
-        $service = $this->creerObjetMetier($monService);
-        return $service;
+        $monContact = DB::table('contacts')->where('id_Contact', '=', $id_Contact)->first();
+        $contact = $this->creerObjetMetier($monContact);
+        return $contact;
     }
 
-    public function getLesImages($id_Service) {
-        $images = DB::table('images_services')->where('fk_Image', '=', $id_Service)->get();
+    public function getLesImages($id_Contact) {
+        $images = DB::table('images_contacts')->where('fk_Image', '=', $id_Contact)->get();
         $lesImages = array();
         foreach ($images as $limage) {
             $id_Image = $limage->id_Image;
@@ -40,32 +40,32 @@ class ContactDAO extends DAO
 
     protected function creerObjetMetier(\stdClass $objet)
     {
-        $leService = new Service();
-        $leService->setIdService($objet->id_Service);
-        $leService->setIntituleService($objet->intitule_Service);
-        $leService->setDescriptionService($objet->description_Service);
-        //Il faut maintenant sélectionner les images associées au service
-        $lesImages = $this->getLesImages($leService->getIdService());
-        //Si le service possède des images
+        $leContact = new Contact();
+        $leContact->setIdContact($objet->id_Contact);
+        $leContact->setIntituleContact($objet->intitule_Contact);
+        $leContact->setDescriptionContact($objet->description_Contact);
+        //Il faut maintenant sélectionner les images associées au contact
+        $lesImages = $this->getLesImages($leContact->getIdContact());
+        //Si le contact possède des images
         if($lesImages){
-            //On modifie l'attribut images_Service de la classe iService
-            $leService->setLesImages($lesImages);
+            //On modifie l'attribut images_Contact de la classe iContact
+            $leContact->setLesImages($lesImages);
         }
         else
-            $leService->setLesImages(null);
-        return $leService;
+            $leContact->setLesImages(null);
+        return $leContact;
     }
 
     protected function creerImageMetier(\stdClass $objet) {
         $limage = new Image();
         $limage -> setIdImage($objet -> id_Image);
         $limage -> setFKImage($objet -> fk_Image);
-        $limage -> setLienService($objet -> lien_Image);
+        $limage -> setLienContact($objet -> lien_Image);
         return $limage;
     }
 
-    public function creationConference(Service $unService){
-        DB::table('services')->insert(['id_Service'=>$unService->getIdService(),'intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
+    public function creationConference(Contact $unContact){
+        DB::table('contacts')->insert(['id_Contact'=>$unContact->getIdContact(),'intitule_Contact'=>$unContact->getIntituleContact(),'description_Contact'=>$unContact->getDescriptionContact()]);
     }
 
 
