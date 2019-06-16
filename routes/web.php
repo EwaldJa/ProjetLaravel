@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('Services','ServiceController@getServices');
-Route::get('ajoutConference','ServiceController@ajoutConference');
+Route::get('ajoutService','ServiceController@ajoutService');
 Route::post('saisieConference','ServiceController@postAjoutConference');
 Route::get('Service/{id}','ServiceController@getServiceById');
 Route::get('Formations','FormationController@getFormations');

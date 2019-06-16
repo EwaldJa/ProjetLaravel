@@ -64,7 +64,7 @@ class ServiceDAO extends DAO
         return $limage;
     }
 
-    public function creationConference(Service $unService){
+    public function creationService(Service $unService){
         DB::table('services')->insert(['id_Service'=>$unService->getIdService(),'intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
     }
 
