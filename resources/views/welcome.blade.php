@@ -77,7 +77,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Limpilux
+                    <img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Image prestation manquante">
                 </div>
 
                 <div class="links">
