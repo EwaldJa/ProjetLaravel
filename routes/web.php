@@ -24,7 +24,7 @@ Route::get('Formations','FormationController@getFormations');
 
 Route::get('secteurs','SecteurController@getSecteurs');
 
-Route::get('histoire','HistoireController@getHistoire');
+Route::get('histoire','HistoireController@getHistoires');
 
 Route::get('contact','ContactController@getContact');
 

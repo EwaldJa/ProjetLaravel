@@ -5,17 +5,17 @@ use App\Http\Requests\InsertionConfRequest;
 use App\Metier\Image;
 use App\Metier\Service;
 
-use App\Modeles\ServiceDAO;
+use App\Modeles\HistoireDAO;
 //use Illuminate\Http\Request;
 
 class HistoireController extends Controller
 {
     //
     //Selection de toutes les conférences
-    public function getServices(){
-        $conference = new ServiceDAO();
-        $lesConferences = $conference->getLesServices();
-        return view('listerConferences',compact('lesConferences'));
+    public function getHistoires(){
+        $histoire = new HistoireDAO();
+        $lesHistoires = $histoire->getLesServices();
+        return view('listerConferences',compact('lesHistoires'));
     }
 
     //Selection d'une conference par son id
