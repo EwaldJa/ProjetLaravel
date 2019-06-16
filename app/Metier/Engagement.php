@@ -14,7 +14,7 @@ class Engagement
     /**
      * @return array
      */
-    public function getLesImages(): array
+    public function getLesImages()
     {
         return $this->images_Engagement;
     }
@@ -22,7 +22,7 @@ class Engagement
     /**
      * @param array $images_Engagement
      */
-    public function setLesImages(array $images_Engagement): void
+    public function setLesImages($images_Engagement): void
     {
         $this->images_Engagement = $images_Engagement;
     }

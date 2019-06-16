@@ -11,7 +11,7 @@
 <nav class="navbar navbar-expand-lg grey-text  static-top" style= "background-color: #d1cece; color: #fa4040 ">
     <div class="container">
 
-        <a class="navbar-brand" href="{{url('/Conferences')}}">Limpilux</a>
+        <a class="navbar-brand" style="width:30%;" href="{{url('/home')}}" ><img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Image prestation manquante"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

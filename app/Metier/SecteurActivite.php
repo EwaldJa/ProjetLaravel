@@ -62,7 +62,7 @@ class SecteurActivite
     /**
      * @return array
      */
-    public function getImagesSecteurActivite(): array
+    public function getlesImages()
     {
         return $this->images_SecteurActivite;
     }
@@ -70,7 +70,7 @@ class SecteurActivite
     /**
      * @param array $images_SecteurActivite
      */
-    public function setImagesSecteurActivite(array $images_SecteurActivite): void
+    public function setlesImages( $images_SecteurActivite): void
     {
         $this->images_SecteurActivite = $images_SecteurActivite;
     }
