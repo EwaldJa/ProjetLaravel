@@ -31,4 +31,6 @@ Route::get('contact','ContactController@getContact');
 Route::get('engagements','engagementController@getEngagements');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home', function () {
+    return view('welcome');
+});
