@@ -13,41 +13,41 @@ class Service
 
     public function getIdService()
     {
-        return $this->idConf;
+        return $this->id_Service;
     }
 
-    public function setIdService($idConf)
+    public function setIdService($id_Service)
     {
-        $this->idConf = $idConf;
+        $this->$id_Service = $id_Service;
     }
 
     public function getIntituleService()
     {
-        return $this->intituleConf;
+        return $this->intitule_Service;
     }
 
-    public function setIntituleService($intituleConf)
+    public function setIntituleService($intitule_Service)
     {
-        $this->intituleConf = $intituleConf;
+        $this->intitule_Service = $intitule_Service;
     }
 
     public function getDescriptionService()
     {
-        return $this->descriptionConf;
+        return $this->description_Service;
     }
 
-    public function setDescriptionService($descriptionConf)
+    public function setDescriptionService($description_Service)
     {
-        $this->descriptionConf = $descriptionConf;
+        $this->description_Service = $description_Service;
     }
 
-    public function getLesCommentaires()
+    public function getLesImages()
     {
-        return $this->lesCommentaires;
+        return $this->images_Service;
     }
 
-    public function setLesCommentaires($commentaires)
+    public function setLesImages($images_Service)
     {
-        $this->lesCommentaires=$commentaires;
+        $this->images_Service=$images_Service;
     }
 }

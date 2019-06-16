@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\InsertionConfRequest;
+use App\Metier\Image;
 use App\Metier\Service;
 
 use App\Modeles\ServiceDAO;

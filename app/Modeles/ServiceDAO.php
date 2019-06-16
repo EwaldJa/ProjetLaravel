@@ -2,6 +2,7 @@
 
 namespace App\Modeles;
 use DB;
+use App\Metier\Image;
 use App\Metier\Service;
 
 class ServiceDAO extends DAO
@@ -22,32 +23,52 @@ class ServiceDAO extends DAO
     {
         //On sélectionne un service par son id.
         //La requête ne retournant qu'une seule occurrence, on utilise la méthode first de Querybuilder
-        $monService = DB::table('conference')->where('id_Service', '=', $id_Service)->first();
+        $monService = DB::table('services')->where('id_Service', '=', $id_Service)->first();
         $service = $this->creerObjetMetier($monService);
         return $service;
     }
 
-    //
-    protected function creerObjetMetier(\stdClass $objet)
-    {
-        $laConference = new Service();
-        $laConference->setIdConf($objet->idConf);
-        $laConference->setIntituleConf($objet->intituleConf);
-        $laConference->setDescriptionConf($objet->descriptionConf);
-        //Il faut maintenant sélectionner les commentaires associés à la conférence
-        $commentaireDAO = new CommentaireDAO();
-        $lesCommentaires = $commentaireDAO->getLesCommentaires($objet->idConf);
-        //Si la conférence possède des commentaires
-        if($lesCommentaires){
-            //On modifie l'attribut lesCommentaires de la classe Service
-            $laConference->setLesCommentaires($lesCommentaires);
+    public function getLesImages($id_Service) {
+        $images = DB::table('images_services')->where('fk_Image', '=', $id_Service)->get();
+        $lesImages = array();
+        foreach ($images as $limage) {
+            $id_Image = $limage->id_Image;
+            $lesImages[$id_Image] = $this->creerImageMetier($limage);
         }
-        else
-            $laConference->setLesCommentaires(null);
-        return $laConference;
+        return $lesImages;
     }
 
-    public function creationConference(Service $uneConference){
-        DB::table('conference')->insert(['intituleConf'=>$uneConference->getIntituleConf(),'descriptionConf'=>$uneConference->getDescriptionConf()]);
+    protected function creerObjetMetier(\stdClass $objet)
+    {
+        $leService = new Service();
+        $leService->setIdService($objet->id_Service);
+        $leService->setIntituleService($objet->intitule_Service);
+        $leService->setDescriptionService($objet->description_Service);
+        //Il faut maintenant sélectionner les images associées au service
+        $lesImages = $this->getLesImages($leService->getIdService());
+        //Si le service possède des images
+        if($lesImages){
+            //On modifie l'attribut images_Service de la classe iService
+            $leService->setLesImages($lesImages);
+        }
+        else
+            $leService->setLesImages(null);
+        return $leService;
     }
+
+    protected function creerImageMetier(\stdClass $objet) {
+        $limage = new Image();
+        $limage -> setIdImage($objet -> id_Image);
+        $limage -> setFKImage($objet -> fk_Image);
+        $limage -> setLienService($objet -> lien_Image);
+        return $limage;
+    }
+
+    public function creationConference(Service $unService){
+        DB::table('services')->insert(['id_Service'=>$unService->getIdService(),'intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
+    }
+
+
+
+
 }
