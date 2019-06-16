@@ -26,22 +26,22 @@
                         @if ($service->getLesImages() != null)
                             <div class="d-none">{{$i = $i + 1}}</div>
                             @if ( ($i%2) != 0)
-                                <div class="col-sm-12 col-lg-9">
-                                    <div class="card">
+                                <div class="col-sm-12 col-md-9 col-lg-8">
+                                    <div class="card" style="height: auto">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
                                             <p class="card-text">{{ $service->getDescriptionService() }}</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
-                                    <img src="{{ ($service->getLesImages())[0]->getLienImage() }}" class="img-fluid" alt="Image prestation manquante">
-                                </div>
-                            @else
-                                <div class="col-lg-3">
+                                <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-3">
                                     <img src="{{ ($service->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image prestation manquante">
                                 </div>
-                                <div class="col-sm-12 col-lg-9">
+                            @else
+                                <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-3">
+                                    <img src="{{ ($service->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image prestation manquante">
+                                </div>
+                                <div class="col-sm-12 col-md-9 col-lg-8">
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
