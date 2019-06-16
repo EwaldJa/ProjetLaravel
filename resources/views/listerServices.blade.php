@@ -1,27 +1,30 @@
 @extends('template')
 
 @section('titrePage')
-    Liste des services
+    Liste des prestations
 @endsection
 
 @section('titreItem')
-    <div class="row">
-        <div class="col-xs-12">
-
+    <div class="row mt-2">
+        <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="card-title">Nos prestations</h1>
+                </div>
+            </div>
         </div>
-        Nos services
+
     </div>
 @endsection
 
 @section('contenu')
-    <div class="row">
-        <div class="col-md-1 col-lg-2"></div>
-        <div class="col-sm-12 col-md-10 col-lg-8">
-            {{$i = 0}}
+    <div class="row mt-2">
+        <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <div class="d-none">{{$i = 0}}</div>
             @foreach ($lesServices as $service)
                 <div class="row">
-                    {{$i = $i + 1}}
                         @if ($service->getLesImages())
+                            <div class="d-none">{{$i = $i + 1}}</div>
                             @if ( ($i%2) == 0)
                                 <div class="col-sm-12 col-lg-9">
                                     <div class="card">
