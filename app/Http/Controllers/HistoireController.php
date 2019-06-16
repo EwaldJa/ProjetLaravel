@@ -8,7 +8,7 @@ use App\Metier\Service;
 use App\Modeles\ServiceDAO;
 //use Illuminate\Http\Request;
 
-class Histoire extends Controller
+class HistoireController extends Controller
 {
     //
     //Selection de toutes les conférences

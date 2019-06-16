@@ -14,12 +14,21 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('Services','ServiceController@getServices');
+Route::get('acceuil',function () {
+    return view('welcome');
+});
+Route::get('prestations','ServiceController@getServices');
 Route::get('ajoutService','ServiceController@ajoutService');
 Route::post('saisieConference','ServiceController@postAjoutConference');
-Route::get('Service/{id}','ServiceController@getServiceById');
 Route::get('Formations','FormationController@getFormations');
+
+Route::get('secteurs','SecteurController@getSecteurs');
+
+Route::get('histoire','HistoireController@getHistoire');
+
+Route::get('contact','ContactController@getContact');
+
+Route::get('engagements','engagementController@getEngagements');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
