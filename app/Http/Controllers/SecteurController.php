@@ -14,8 +14,8 @@ class SecteurController extends Controller
     //Selection de toutes les conférences
     public function getSecteurs(){
         $secteurDAO = new SecteurActiviteDAO();
-        $lesSecteurs  = $secteurDAO ->getLesSecteurActivite();
-        return view('listerConferences',compact('lesSecteurs'));
+        $lesSecteursActivite  = $secteurDAO ->getLesSecteurActivite();
+        return view('listerSecteursActivite',compact('lesSecteursActivite'));
     }
 
     //Selection d'une conference par son id

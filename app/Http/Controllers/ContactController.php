@@ -14,8 +14,8 @@ class ContactController extends Controller
     //Selection de toutes les conférences
     public function getContact(){
         $contact = new ContactDAO();
-        $lesContact = $contact->getLesContacts();
-        return view('listerConferences',compact('lesContact'));
+        $lesContacts = $contact->getLesContacts();
+        return view('listerContacts',compact('lesContacts'));
     }
 
     //Selection d'une conference par son id

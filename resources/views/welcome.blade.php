@@ -84,8 +84,8 @@
                     <a href="{{ url('/prestations') }}">Prestations</a>
                     <a href="{{ url('/secteurs') }}">Secteurs d'activité</a>
                     <a href="{{ url('/histoire') }}">Histoire</a>
-                    <a href="{{ url('/home') }}">Engagements</a>
-                    <a href="{{ url('/engagements') }}">Nous contacter</a>
+                    <a href="{{ url('/engagements') }}">Engagements</a>
+                    <a href="{{ url('/contact') }}">Nous contacter</a>
                     <a href="{{ url('/home') }}">Recrutement</a>
                 </div>
             </div>

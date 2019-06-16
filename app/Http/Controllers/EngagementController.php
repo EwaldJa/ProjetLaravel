@@ -14,8 +14,8 @@ class EngagementController extends Controller
     //Selection de toutes les conférences
     public function getEngagements(){
         $engagement = new EngagementDAO();
-        $lesEngagement = $engagement->getLesEngagements();
-        return view('listerConferences',compact('lesEngagement'));
+        $lesEngagements = $engagement->getLesEngagements();
+        return view('listerEngagements',compact('lesEngagements'));
     }
 
     //Selection d'une conference par son id
