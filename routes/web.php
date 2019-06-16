@@ -20,7 +20,6 @@ Route::get('ajoutConference','ServiceController@ajoutConference');
 Route::post('saisieConference','ServiceController@postAjoutConference');
 Route::get('Service/{id}','ServiceController@getServiceById');
 Route::get('Formations','FormationController@getFormations');
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
