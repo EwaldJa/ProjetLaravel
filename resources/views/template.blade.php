@@ -57,11 +57,14 @@
     </div>
 </nav>
 <header>
+
     @yield('titreItem')
+
 </header>
+
 @yield('contenu')
 
-<footer class="footer">
+<footer class="footer mt-5">
     <p>Tel : 0820 205 122</p>
     <p>Copyright 2019 - Tout droit réservés</p>
 </footer>
