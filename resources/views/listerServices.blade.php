@@ -5,28 +5,29 @@
 @endsection
 
 @section('titreItem')
-    <div class="row mt-5">
-        <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <div class="card" style="width: 25em">
+
+    <div class="row mt-5 sansmarge">
+        <div class="d-inline-block col-md-10 offset-md-1 col-lg-8 offset-lg-2 grisclair">
+            <div class="card mt-3 mb-3" style="width: 25em">
                 <div class="card-body">
                     <h1 class="card-title">Nos prestations</h1>
                 </div>
             </div>
         </div>
-
     </div>
+
 @endsection
 
 @section('contenu')
-        <div class="row mt-2">
-            <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <div class="row mt-2 sansmarge">
+            <div class="d-inline-block col-md-10 offset-md-1 col-lg-8 offset-lg-2 grisclair">
                 <div class="d-none">{{$i = 0}}</div>
                 @foreach ($lesServices as $service)
                     <div class="row">
                         @if ($service->getLesImages() != null)
                             <div class="d-none">{{$i = $i + 1}}</div>
                             @if ( ($i%2) != 0)
-                                <div class="col-sm-12 col-md-9 col-lg-8 mt-3">
+                                <div class="col-sm-12 col-md-9 col-lg-8 mt-3 mb-3">
                                     <div class="card" style="height: auto">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
@@ -34,14 +35,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-4 mt-3">
+                                <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-4 mt-3 mb-3">
                                     <img src="{{ ($service->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image prestation manquante">
                                 </div>
                             @else
-                                <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-4 mt-3">
+                                <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-4 mt-3 mb-3">
                                     <img src="{{ ($service->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image prestation manquante">
                                 </div>
-                                <div class="col-sm-12 col-md-9 col-lg-8 mt-3">
+                                <div class="col-sm-12 col-md-9 col-lg-8 mt-3 mb-3">
                                     <div class="card">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
@@ -51,7 +52,7 @@
                                 </div>
                             @endif
                         @else
-                            <div class="col-sm-12 mt-3">
+                            <div class="col-sm-12 mt-3 mb-3">
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ $service->getIntituleService() }}</h5>

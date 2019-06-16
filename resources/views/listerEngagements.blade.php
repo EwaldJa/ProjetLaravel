@@ -19,7 +19,7 @@
 
 @section('contenu')
     <div class="row mt-2">
-        <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 grisclair">
             <div class="d-none">{{$i = 0}}</div>
             @foreach ($lesEngagements as $engagement)
                 <div class="row">

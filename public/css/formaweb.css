@@ -13,5 +13,9 @@ body {
 
 .grisclair {
     background-color: #EEEEEE;
-    color: #EEEEEE;
+}
+
+.sansmarge {
+    margin-left: 0px;
+    margin-right: 0px;
 }
