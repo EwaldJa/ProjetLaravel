@@ -6,48 +6,73 @@ namespace App\Metier;
 
 class Engagement
 {
-    private $id_Service;
-    private $intitule_Service;
-    private $description_Service;
-    private $images_Service=array();
+    private $id_Engagement;
+    private $intitule_Engagement;
+    private $description_Engagement;
+    private $images_Engagement = array();
 
-    public function getIdService()
+    /**
+     * @return array
+     */
+    public function getImagesEngagement(): array
     {
-        return $this->id_Service;
+        return $this->images_Engagement;
     }
 
-    public function setIdService($id_Service)
+    /**
+     * @param array $images_Engagement
+     */
+    public function setImagesEngagement(array $images_Engagement): void
     {
-        $this->$id_Service = $id_Service;
+        $this->images_Engagement = $images_Engagement;
     }
 
-    public function getIntituleService()
+    /**
+     * @return mixed
+     */
+    public function getIdEngagement()
     {
-        return $this->intitule_Service;
+        return $this->id_Engagement;
     }
 
-    public function setIntituleService($intitule_Service)
+    /**
+     * @param mixed $id_Engagement
+     */
+    public function setIdEngagement($id_Engagement): void
     {
-        $this->intitule_Service = $intitule_Service;
+        $this->id_Engagement = $id_Engagement;
     }
 
-    public function getDescriptionService()
+    /**
+     * @return mixed
+     */
+    public function getIntituleEngagement()
     {
-        return $this->description_Service;
+        return $this->intitule_Engagement;
     }
 
-    public function setDescriptionService($description_Service)
+    /**
+     * @param mixed $intitule_Engagement
+     */
+    public function setIntituleEngagement($intitule_Engagement): void
     {
-        $this->description_Service = $description_Service;
+        $this->intitule_Engagement = $intitule_Engagement;
     }
 
-    public function getLesImages()
+    /**
+     * @return mixed
+     */
+    public function getDescriptionEngagement()
     {
-        return $this->images_Service;
+        return $this->description_Engagement;
     }
 
-    public function setLesImages($images_Service)
+    /**
+     * @param mixed $description_Engagement
+     */
+    public function setDescriptionEngagement($description_Engagement): void
     {
-        $this->images_Service=$images_Service;
+        $this->description_Engagement = $description_Engagement;
     }
+
 }

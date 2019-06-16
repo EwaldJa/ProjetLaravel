@@ -81,12 +81,12 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ url('/home') }}">Services</a>
-                    <a href="{{ url('/home') }}">Secteurs d'activité</a>
-                    <a href="{{ url('/home') }}">Histoire</a>
+                    <a href="{{ url('/prestations') }}">Prestations</a>
+                    <a href="{{ url('/secteurs') }}">Secteurs d'activité</a>
+                    <a href="{{ url('/histoire') }}">Histoire</a>
                     <a href="{{ url('/home') }}">Engagements</a>
-                    <a href="{{ url('/home') }}">Nous contacter</a>
-                    <a href="{{ url('/home') }}">Carrière</a>
+                    <a href="{{ url('/engagements') }}">Nous contacter</a>
+                    <a href="{{ url('/home') }}">Recrutement</a>
                 </div>
             </div>
         </div>

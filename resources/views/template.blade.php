@@ -18,17 +18,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link red-text" href="#">Home
+                    <a class="nav-link red-text" href="{{url('/acceuil')}}">Acceuil
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{url('/Services')}}">Les services proposés
+                    <a class="nav-link" href="{{url('/prestations')}}">Prestations
                         <span class="sr-only">(current)</span>
                     </a>
-                </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Nos secteurs d'activité
+                    <a class="nav-link" href="{{url('/secteurs')}}">Secteurs d'activité
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -37,17 +36,17 @@
                         Qui sommes nous ?
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{url('/Formations')}}">Notre histoire</a>
-                        <a class="dropdown-item" href="{{url('/Formations')}}">Nos engagements</a>
+                        <a class="dropdown-item" href="{{url('/histoire')}}">Notre histoire</a>
+                        <a class="dropdown-item" href="{{url('/engagements')}}">Nos engagements</a>
                     </div>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Demande d'info
+                    <a class="nav-link" href="{{url('/contact')}}">Contact
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Carrière
+                    <a class="nav-link" href="{{url('/recrutement')}}">Recrutement
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -58,11 +57,12 @@
     </div>
 </nav>
 <header>
-    <h1>@yield('titreItem')</h1>
+    @yield('titreItem')
 </header>
 @yield('contenu')
 
 <footer class="footer">
+    <p>Tel : 0820 205 122</p>
     <p>Copyright 2019 - Tout droit réservés</p>
 </footer>
 {!! Html::script('lib/jquery/jquery-3.3.1.slim.min.js') !!}

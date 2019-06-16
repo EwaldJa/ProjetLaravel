@@ -5,17 +5,17 @@ use App\Http\Requests\InsertionConfRequest;
 use App\Metier\Image;
 use App\Metier\Service;
 
-use App\Modeles\ServiceDAO;
+use App\Modeles\ContactDAO;
 //use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
     //
     //Selection de toutes les conférences
-    public function getServices(){
-        $conference = new ServiceDAO();
-        $lesConferences = $conference->getLesServices();
-        return view('listerConferences',compact('lesConferences'));
+    public function getContact(){
+        $contact = new ContactDAO();
+        $lesContact = $contact->getLesServices();
+        return view('listerConferences',compact('lesContact'));
     }
 
     //Selection d'une conference par son id

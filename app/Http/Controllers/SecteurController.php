@@ -5,17 +5,17 @@ use App\Http\Requests\InsertionConfRequest;
 use App\Metier\Image;
 use App\Metier\Service;
 
-use App\Modeles\ServiceDAO;
+use App\Modeles\SecteurActiviteDAO;
 //use Illuminate\Http\Request;
 
 class SecteurController extends Controller
 {
     //
     //Selection de toutes les conférences
-    public function getServices(){
-        $conference = new ServiceDAO();
-        $lesConferences = $conference->getLesServices();
-        return view('listerConferences',compact('lesConferences'));
+    public function getSecteurs(){
+        $secteurDAO = new SecteurActiviteDAO();
+        $lesSecteurs  = $secteurDAO ->getLesServices();
+        return view('listerConferences',compact('lesSecteurs'));
     }
 
     //Selection d'une conference par son id

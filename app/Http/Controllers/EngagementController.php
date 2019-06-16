@@ -5,17 +5,17 @@ use App\Http\Requests\InsertionConfRequest;
 use App\Metier\Image;
 use App\Metier\Service;
 
-use App\Modeles\ServiceDAO;
+use App\Modeles\EngagementDAO;
 //use Illuminate\Http\Request;
 
 class EngagementController extends Controller
 {
     //
     //Selection de toutes les conférences
-    public function getServices(){
-        $conference = new ServiceDAO();
-        $lesConferences = $conference->getLesServices();
-        return view('listerConferences',compact('lesConferences'));
+    public function getEngagements(){
+        $engagement = new EngagementDAO();
+        $lesEngagement = $engagement->getLesServices();
+        return view('listerConferences',compact('lesEngagement'));
     }
 
     //Selection d'une conference par son id
