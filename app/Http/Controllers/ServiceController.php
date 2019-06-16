@@ -10,24 +10,23 @@ use App\Modeles\ServiceDAO;
 
 class ServiceController extends Controller
 {
-    //
-    //Selection de toutes les conférences
+    //Selection de tous les services
     public function getServices(){
-        $conference = new ServiceDAO();
-        $lesConferences = $conference->getLesServices();
-        return view('listerConferences',compact('lesConferences'));
+        $serviceDAO = new ServiceDAO();
+        $lesServices = $serviceDAO->getLesServices();
+        return view('listerServices',compact('lesServices'));
     }
 
-    //Selection d'une conference par son id
-    public function getServiceById($idConf)
+    //Selection d'un service par son id
+    public function getServiceById($id_Service)
     {
-        $conference = new ServiceDAO();
-        $laConference = $conference->getServiceById($idConf);
-        $lesCommentaires = $laConference->getLesCommentaires();
-        //pour simplifier l'accès aux données dans la vue "ListerCommentaire', on passe deux objets
-        //laConference représente la conférence qui a été sélectionnée
-        //lesCommentaires représente la liste des commentaires associés à cette conférence
-        return view('listerCommentaires',compact('laConference','lesCommentaires'));
+        $serviceDAO = new ServiceDAO();
+        $leService = $serviceDAO->getServiceById($id_Service);
+        $lesImages = $leService->getLesImages();
+        //pour simplifier l'accès aux données dans la vue "detailsService', on passe deux objets
+        //$leService représente le service qui a été sélectionné
+        //$lesImages représente la liste des images associées à ce service
+        return view('detailsService',compact('leService','lesImages'));
     }
 /*
     public function ajoutConference(){
