@@ -4,38 +4,39 @@
 namespace App\Metier;
 
 
-class Conference
+class Service
 {
-    private $idConf;
-    private $intituleConf;
-    private $lesCommentaires=array();
+    private $id_Service;
+    private $intitule_Service;
+    private $description_Service;
+    private $images_Service=array();
 
-    public function getIdConf()
+    public function getIdService()
     {
         return $this->idConf;
     }
 
-    public function setIdConf($idConf)
+    public function setIdService($idConf)
     {
         $this->idConf = $idConf;
     }
 
-    public function getIntituleConf()
+    public function getIntituleService()
     {
         return $this->intituleConf;
     }
 
-    public function setIntituleConf($intituleConf)
+    public function setIntituleService($intituleConf)
     {
         $this->intituleConf = $intituleConf;
     }
 
-    public function getDescriptionConf()
+    public function getDescriptionService()
     {
         return $this->descriptionConf;
     }
 
-    public function setDescriptionConf($descriptionConf)
+    public function setDescriptionService($descriptionConf)
     {
         $this->descriptionConf = $descriptionConf;
     }

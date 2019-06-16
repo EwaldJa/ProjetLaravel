@@ -2,35 +2,35 @@
 
 namespace App\Modeles;
 use DB;
-use App\Metier\Conference;
+use App\Metier\Service;
 
-class ConferenceDAO extends DAO
+class ServiceDAO extends DAO
 {
 
-    public function getLesConferences()
+    public function getLesServices()
     {
-        $conferences = DB::table('conference')->get();
-        $lesConferences = array();
-        foreach ($conferences as $laConference) {
-            $idConf = $laConference->idConf;
-            $lesConferences[$idConf] = $this->creerObjetMetier($laConference);
+        $services = DB::table('services')->get();
+        $lesServices = array();
+        foreach ($services as $leService) {
+            $id_Service = $leService->id_Service;
+            $lesServices[$id_Service] = $this->creerObjetMetier($leService);
         }
-        return $lesConferences;
+        return $lesServices;
     }
 
-    public function getConferenceById($idConf)
+    public function getServiceById($id_Service)
     {
-        //On sélectionne une conference par son id.
+        //On sélectionne un service par son id.
         //La requête ne retournant qu'une seule occurrence, on utilise la méthode first de Querybuilder
-        $maConference = DB::table('conference')->where('idConf', '=', $idConf)->first();
-        $conference = $this->creerObjetMetier($maConference);
-        return $conference;
+        $monService = DB::table('conference')->where('id_Service', '=', $id_Service)->first();
+        $service = $this->creerObjetMetier($monService);
+        return $service;
     }
 
     //
     protected function creerObjetMetier(\stdClass $objet)
     {
-        $laConference = new Conference();
+        $laConference = new Service();
         $laConference->setIdConf($objet->idConf);
         $laConference->setIntituleConf($objet->intituleConf);
         $laConference->setDescriptionConf($objet->descriptionConf);
@@ -39,7 +39,7 @@ class ConferenceDAO extends DAO
         $lesCommentaires = $commentaireDAO->getLesCommentaires($objet->idConf);
         //Si la conférence possède des commentaires
         if($lesCommentaires){
-            //On modifie l'attribut lesCommentaires de la classe Conference
+            //On modifie l'attribut lesCommentaires de la classe Service
             $laConference->setLesCommentaires($lesCommentaires);
         }
         else
@@ -47,7 +47,7 @@ class ConferenceDAO extends DAO
         return $laConference;
     }
 
-    public function creationConference(Conference $uneConference){
+    public function creationConference(Service $uneConference){
         DB::table('conference')->insert(['intituleConf'=>$uneConference->getIntituleConf(),'descriptionConf'=>$uneConference->getDescriptionConf()]);
     }
 }

@@ -15,10 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('Conferences','ConferenceController@getConferences');
-Route::get('ajoutConference','ConferenceController@ajoutConference');
-Route::post('saisieConference','ConferenceController@postAjoutConference');
-Route::get('Conference/{id}','ConferenceController@getConferenceById');
+Route::get('Services','ServiceController@getService');
+Route::get('ajoutConference','ServiceController@ajoutConference');
+Route::post('saisieConference','ServiceController@postAjoutConference');
+Route::get('Service/{id}','ServiceController@getServiceById');
 Route::get('Formations','FormationController@getFormations');
 
 Auth::routes();

@@ -11,7 +11,7 @@
 @section('contenu')
     @foreach ($lesConferences as $conference)
         <conference>
-                <h2><a href="{{ url('/Conference') }}/{{ $conference->getIdConf() }}">{{ $conference->getIdConf() }} {{ $conference->getIntituleConf() }}</a></h2>
+                <h2><a href="{{ url('Service') }}/{{ $conference->getIdConf() }}">{{ $conference->getIdConf() }} {{ $conference->getIntituleConf() }}</a></h2>
                 <p>{{ $conference->getDescriptionConf() }}</p>
         </conference>
     @endforeach
