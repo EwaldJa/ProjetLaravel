@@ -8,32 +8,33 @@ use App\Metier\SecteurActivite;
 class SecteurActiviteDAO extends DAO
 {
 
-    public function getLesSecteurActivites()
+    public function getLesSecteurActivite()
     {
-        $secteurActivites = DB::table('secteurActivites')->get();
-        $lesSecteurActivites = array();
-        foreach ($secteurActivites as $leSecteurActivite) {
+        $secteurActivite = DB::table('secteurs_activite')->get();
+        $lesSecteurActivite = array();
+        foreach ($secteurActivite as $leSecteurActivite) {
             $id_SecteurActivite = $leSecteurActivite->id_SecteurActivite;
-            $lesSecteurActivites[$id_SecteurActivite] = $this->creerObjetMetier($leSecteurActivite);
+            $lesSecteurActivite[$id_SecteurActivite] = $this->creerObjetMetier($leSecteurActivite);
         }
-        return $lesSecteurActivites;
+        return $lesSecteurActivite;
     }
 
     public function getSecteurActiviteById($id_SecteurActivite)
     {
         //On sélectionne un secteurActivite par son id.
         //La requête ne retournant qu'une seule occurrence, on utilise la méthode first de Querybuilder
-        $monSecteurActivite = DB::table('secteurActivites')->where('id_SecteurActivite', '=', $id_SecteurActivite)->first();
+        $monSecteurActivite = DB::table('secteurs_activite')->where('id_Secteur', '=', $id_SecteurActivite)->first();
         $secteurActivite = $this->creerObjetMetier($monSecteurActivite);
         return $secteurActivite;
     }
 
     public function getLesImages($id_SecteurActivite) {
-        $images = DB::table('images_secteurActivites')->where('fk_Image', '=', $id_SecteurActivite)->get();
+        $images = DB::table('images_secteurs_activite')->where('fk_Image', '=', $id_SecteurActivite)->get();
         $lesImages = array();
+        $i = 0;
         foreach ($images as $limage) {
-            $id_Image = $limage->id_Image;
-            $lesImages[$id_Image] = $this->creerImageMetier($limage);
+            $lesImages[$i] = $this->creerImageMetier($limage);
+            $i = $i + 1;
         }
         return $lesImages;
     }
@@ -65,7 +66,7 @@ class SecteurActiviteDAO extends DAO
     }
 
     public function creationConference(SecteurActivite $unSecteurActivite){
-        DB::table('secteurActivites')->insert(['id_SecteurActivite'=>$unSecteurActivite->getIdSecteurActivite(),'intitule_SecteurActivite'=>$unSecteurActivite->getIntituleSecteurActivite(),'description_SecteurActivite'=>$unSecteurActivite->getDescriptionSecteurActivite()]);
+        DB::table('secteurs_activite')->insert(['id_Secteur'=>$unSecteurActivite->getIdSecteurActivite(),'intitule_Secteur'=>$unSecteurActivite->getIntituleSecteurActivite(),'description_Secteur'=>$unSecteurActivite->getDescriptionSecteurActivite()]);
     }
 
 

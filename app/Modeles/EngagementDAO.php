@@ -31,9 +31,10 @@ class EngagementDAO extends DAO
     public function getLesImages($id_Engagement) {
         $images = DB::table('images_engagements')->where('fk_Image', '=', $id_Engagement)->get();
         $lesImages = array();
+        $i = 0;
         foreach ($images as $limage) {
-            $id_Image = $limage->id_Image;
-            $lesImages[$id_Image] = $this->creerImageMetier($limage);
+            $lesImages[$i] = $this->creerImageMetier($limage);
+            $i = $i + 1;
         }
         return $lesImages;
     }
