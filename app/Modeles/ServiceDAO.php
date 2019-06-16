@@ -46,7 +46,7 @@ class ServiceDAO extends DAO
         $leService->setIntituleService($objet->intitule_Service);
         $leService->setDescriptionService($objet->description_Service);
         //Il faut maintenant sélectionner les images associées au service
-        $lesImages = $this->getLesImages($leService->getIdService());
+        $lesImages = $this->getLesImages($objet->id_Service);
         //Si le service possède des images
         if($lesImages){
             //On modifie l'attribut images_Service de la classe iService

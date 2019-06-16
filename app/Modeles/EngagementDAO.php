@@ -46,7 +46,7 @@ class EngagementDAO extends DAO
         $leEngagement->setIntituleEngagement($objet->intitule_Engagement);
         $leEngagement->setDescriptionEngagement($objet->description_Engagement);
         //Il faut maintenant sélectionner les images associées au engagement
-        $lesImages = $this->getLesImages($leEngagement->getIdEngagement());
+        $lesImages = $this->getLesImages($objet->id_Engagement);
         //Si le engagement possède des images
         if($lesImages){
             //On modifie l'attribut images_Engagement de la classe iEngagement

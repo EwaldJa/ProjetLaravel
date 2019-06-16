@@ -46,7 +46,7 @@ class ContactDAO extends DAO
         $leContact->setIntituleContact($objet->intitule_Contact);
         $leContact->setDescriptionContact($objet->description_Contact);
         //Il faut maintenant sélectionner les images associées au contact
-        $lesImages = $this->getLesImages($leContact->getIdContact());
+        $lesImages = $this->getLesImages($objet->id_Contact);
         //Si le contact possède des images
         if($lesImages){
             //On modifie l'attribut images_Contact de la classe iContact

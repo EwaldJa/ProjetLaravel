@@ -46,7 +46,7 @@ class HistoireDAO extends DAO
         $uneHistoire->setIntituuneHistoire($objet->intitule_Histoire);
         $uneHistoire->setDescriptionHistoire($objet->description_Histoire);
         //Il faut maintenant sélectionner les images associées au histoire
-        $lesImages = $this->getLesImages($uneHistoire->getIdHistoire());
+        $lesImages = $this->getLesImages($objet->id_Histoire);
         //Si le histoire possède des images
         if($lesImages){
             //On modifie l'attribut images_Histoire de la classe iHistoire
