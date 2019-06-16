@@ -6,48 +6,174 @@ namespace App\Metier;
 
 class Contact
 {
-    private $id_Service;
-    private $intitule_Service;
-    private $description_Service;
-    private $images_Service=array();
+    private $id_Contact;
+    private $prenom_Contact;
+    private $nom_Contact;
+    private $email_Contact;
+    private $objet_Contact;
+    private $message_Contact;
+    private $societe_Contact;
+    private $telephone_Contact;
+    private $codepostal_Contact;
+    private $adresse_Contact;
 
-    public function getIdService()
+    /**
+     * @return mixed
+     */
+    public function getIdContact()
     {
-        return $this->id_Service;
+        return $this->id_Contact;
     }
 
-    public function setIdService($id_Service)
+    /**
+     * @param mixed $id_Contact
+     */
+    public function setIdContact($id_Contact): void
     {
-        $this->$id_Service = $id_Service;
+        $this->id_Contact = $id_Contact;
     }
 
-    public function getIntituleService()
+    /**
+     * @return mixed
+     */
+    public function getPrenomContact()
     {
-        return $this->intitule_Service;
+        return $this->prenom_Contact;
     }
 
-    public function setIntituleService($intitule_Service)
+    /**
+     * @param mixed $prenom_Contact
+     */
+    public function setPrenomContact($prenom_Contact): void
     {
-        $this->intitule_Service = $intitule_Service;
+        $this->prenom_Contact = $prenom_Contact;
     }
 
-    public function getDescriptionService()
+    /**
+     * @return mixed
+     */
+    public function getNomContact()
     {
-        return $this->description_Service;
+        return $this->nom_Contact;
     }
 
-    public function setDescriptionService($description_Service)
+    /**
+     * @param mixed $nom_Contact
+     */
+    public function setNomContact($nom_Contact): void
     {
-        $this->description_Service = $description_Service;
+        $this->nom_Contact = $nom_Contact;
     }
 
-    public function getLesImages()
+    /**
+     * @return mixed
+     */
+    public function getEmailContact()
     {
-        return $this->images_Service;
+        return $this->email_Contact;
     }
 
-    public function setLesImages($images_Service)
+    /**
+     * @param mixed $email_Contact
+     */
+    public function setEmailContact($email_Contact): void
     {
-        $this->images_Service=$images_Service;
+        $this->email_Contact = $email_Contact;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getObjetContact()
+    {
+        return $this->objet_Contact;
+    }
+
+    /**
+     * @param mixed $objet_Contact
+     */
+    public function setObjetContact($objet_Contact): void
+    {
+        $this->objet_Contact = $objet_Contact;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMessageContact()
+    {
+        return $this->message_Contact;
+    }
+
+    /**
+     * @param mixed $message_Contact
+     */
+    public function setMessageContact($message_Contact): void
+    {
+        $this->message_Contact = $message_Contact;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSocieteContact()
+    {
+        return $this->societe_Contact;
+    }
+
+    /**
+     * @param mixed $societe_Contact
+     */
+    public function setSocieteContact($societe_Contact): void
+    {
+        $this->societe_Contact = $societe_Contact;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTelephoneContact()
+    {
+        return $this->telephone_Contact;
+    }
+
+    /**
+     * @param mixed $telephone_Contact
+     */
+    public function setTelephoneContact($telephone_Contact): void
+    {
+        $this->telephone_Contact = $telephone_Contact;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCodepostalContact()
+    {
+        return $this->codepostal_Contact;
+    }
+
+    /**
+     * @param mixed $codepostal_Contact
+     */
+    public function setCodepostalContact($codepostal_Contact): void
+    {
+        $this->codepostal_Contact = $codepostal_Contact;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdresseContact()
+    {
+        return $this->adresse_Contact;
+    }
+
+    /**
+     * @param mixed $adresse_Contact
+     */
+    public function setAdresseContact($adresse_Contact): void
+    {
+        $this->adresse_Contact = $adresse_Contact;
     }
 }
