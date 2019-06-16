@@ -31,3 +31,10 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app'
 });
+
+
+document.querySelector(".navbar-toggler").addEventListener("click", function(e){
+
+    document.querySelector("#LimpiluxNavbar").classList.toggle("show");
+
+});

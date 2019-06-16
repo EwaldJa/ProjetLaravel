@@ -17,10 +17,10 @@ Route::get('/', function () {
 Route::get('acceuil',function () {
     return view('welcome');
 });
+Route::get('accueil',function () {
+    return view('welcome');
+});
 Route::get('prestations','ServiceController@getServices');
-Route::get('ajoutService','ServiceController@ajoutService');
-Route::post('saisieConference','ServiceController@postAjoutConference');
-Route::get('Formations','FormationController@getFormations');
 
 Route::get('secteurs','SecteurController@getSecteurs');
 

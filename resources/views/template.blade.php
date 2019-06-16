@@ -8,17 +8,19 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg grey-text  static-top" style= "background-color: #d1cece; color: #fa4040 ">
-    <div class="container">
+<nav class="d-block navbar navbar-expand-lg grey-text static-top mr-2" style= "background-color: #d1cece; color: #fa4040 ">
+    <div class="container-fluid">
 
-        <a class="navbar-brand" style="width:30%;" href="{{url('/home')}}" ><img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Image prestation manquante"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand" style="width:30%;" href="{{url('/home')}}" ><img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Logo manquant"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#LimpiluxNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span><img src="Images/hamburger_menu.png" class="float-right" style="max-width: 15%" alt="Menu"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
+
+        <div class="collapse navbar-collapse" id="LimpiluxNavbar">
             <ul class="navbar-nav ml-auto">
+
                 <li class="nav-item active">
-                    <a class="nav-link red-text" href="{{url('/acceuil')}}">Acceuil
+                    <a class="nav-link red-text" href="{{url('/accueil')}}">Accueil
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -51,7 +53,6 @@
                     </a>
                 </li>
 
-
             </ul>
         </div>
     </div>
@@ -66,7 +67,7 @@
 
 <footer class="footer mt-5">
     <p>Tel : 0820 205 122</p>
-    <p>Copyright 2019 - Tout droit réservés</p>
+    <p>Copyright © Limpilux 2019 - Tous droits réservés</p>
 </footer>
 {!! Html::script('lib/jquery/jquery-3.3.1.slim.min.js') !!}
 {!! Html::script('lib/js/bootstrap.bundle.js') !!}
