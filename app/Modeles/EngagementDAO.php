@@ -3,33 +3,33 @@
 namespace App\Modeles;
 use DB;
 use App\Metier\Image;
-use App\Metier\Service;
+use App\Metier\Engagement;
 
 class EngagementDAO extends DAO
 {
 
-    public function getLesServices()
+    public function getLesEngagements()
     {
-        $services = DB::table('services')->get();
-        $lesServices = array();
-        foreach ($services as $leService) {
-            $id_Service = $leService->id_Service;
-            $lesServices[$id_Service] = $this->creerObjetMetier($leService);
+        $engagements = DB::table('engagements')->get();
+        $lesEngagements = array();
+        foreach ($engagements as $leEngagement) {
+            $id_Engagement = $leEngagement->id_Engagement;
+            $lesEngagements[$id_Engagement] = $this->creerObjetMetier($leEngagement);
         }
-        return $lesServices;
+        return $lesEngagements;
     }
 
-    public function getServiceById($id_Service)
+    public function getEngagementById($id_Engagement)
     {
-        //On sélectionne un service par son id.
+        //On sélectionne un engagement par son id.
         //La requête ne retournant qu'une seule occurrence, on utilise la méthode first de Querybuilder
-        $monService = DB::table('services')->where('id_Service', '=', $id_Service)->first();
-        $service = $this->creerObjetMetier($monService);
-        return $service;
+        $monEngagement = DB::table('engagements')->where('id_Engagement', '=', $id_Engagement)->first();
+        $engagement = $this->creerObjetMetier($monEngagement);
+        return $engagement;
     }
 
-    public function getLesImages($id_Service) {
-        $images = DB::table('images_services')->where('fk_Image', '=', $id_Service)->get();
+    public function getLesImages($id_Engagement) {
+        $images = DB::table('images_engagements')->where('fk_Image', '=', $id_Engagement)->get();
         $lesImages = array();
         foreach ($images as $limage) {
             $id_Image = $limage->id_Image;
@@ -40,32 +40,32 @@ class EngagementDAO extends DAO
 
     protected function creerObjetMetier(\stdClass $objet)
     {
-        $leService = new Service();
-        $leService->setIdService($objet->id_Service);
-        $leService->setIntituleService($objet->intitule_Service);
-        $leService->setDescriptionService($objet->description_Service);
-        //Il faut maintenant sélectionner les images associées au service
-        $lesImages = $this->getLesImages($leService->getIdService());
-        //Si le service possède des images
+        $leEngagement = new Engagement();
+        $leEngagement->setIdEngagement($objet->id_Engagement);
+        $leEngagement->setIntituleEngagement($objet->intitule_Engagement);
+        $leEngagement->setDescriptionEngagement($objet->description_Engagement);
+        //Il faut maintenant sélectionner les images associées au engagement
+        $lesImages = $this->getLesImages($leEngagement->getIdEngagement());
+        //Si le engagement possède des images
         if($lesImages){
-            //On modifie l'attribut images_Service de la classe iService
-            $leService->setLesImages($lesImages);
+            //On modifie l'attribut images_Engagement de la classe iEngagement
+            $leEngagement->setLesImages($lesImages);
         }
         else
-            $leService->setLesImages(null);
-        return $leService;
+            $leEngagement->setLesImages(null);
+        return $leEngagement;
     }
 
     protected function creerImageMetier(\stdClass $objet) {
         $limage = new Image();
         $limage -> setIdImage($objet -> id_Image);
         $limage -> setFKImage($objet -> fk_Image);
-        $limage -> setLienService($objet -> lien_Image);
+        $limage -> setLienEngagement($objet -> lien_Image);
         return $limage;
     }
 
-    public function creationConference(Service $unService){
-        DB::table('services')->insert(['id_Service'=>$unService->getIdService(),'intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
+    public function creationConference(Engagement $unEngagement){
+        DB::table('engagements')->insert(['id_Engagement'=>$unEngagement->getIdEngagement(),'intitule_Engagement'=>$unEngagement->getIntituleEngagement(),'description_Engagement'=>$unEngagement->getDescriptionEngagement()]);
     }
 
 

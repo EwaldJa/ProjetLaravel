@@ -6,73 +6,73 @@ namespace App\Metier;
 
 class SecteurActivite
 {
-    private $id_Secteur;
-    private $intitule_Secteur;
-    private $description_Secteur;
-    private $images_Secteur = array();
+    private $id_SecteurActivite;
+    private $intitule_SecteurActivite;
+    private $description_SecteurActivite;
+    private $images_SecteurActivite = array();
 
     /**
      * @return mixed
      */
-    public function getIdSecteur()
+    public function getIdSecteurActivite()
     {
-        return $this->id_Secteur;
+        return $this->id_SecteurActivite;
     }
 
     /**
-     * @param mixed $id_Secteur
+     * @param mixed $id_SecteurActivite
      */
-    public function setIdSecteur($id_Secteur): void
+    public function setIdSecteurActivite($id_SecteurActivite): void
     {
-        $this->id_Secteur = $id_Secteur;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIntituleSecteur()
-    {
-        return $this->intitule_Secteur;
-    }
-
-    /**
-     * @param mixed $intitule_Secteur
-     */
-    public function setIntituleSecteur($intitule_Secteur): void
-    {
-        $this->intitule_Secteur = $intitule_Secteur;
+        $this->id_SecteurActivite = $id_SecteurActivite;
     }
 
     /**
      * @return mixed
      */
-    public function getDescriptionSecteur()
+    public function getIntituleSecteurActivite()
     {
-        return $this->description_Secteur;
+        return $this->intitule_SecteurActivite;
     }
 
     /**
-     * @param mixed $description_Secteur
+     * @param mixed $intitule_SecteurActivite
      */
-    public function setDescriptionSecteur($description_Secteur): void
+    public function setIntituleSecteurActivite($intitule_SecteurActivite): void
     {
-        $this->description_Secteur = $description_Secteur;
+        $this->intitule_SecteurActivite = $intitule_SecteurActivite;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescriptionSecteurActivite()
+    {
+        return $this->description_SecteurActivite;
+    }
+
+    /**
+     * @param mixed $description_SecteurActivite
+     */
+    public function setDescriptionSecteurActivite($description_SecteurActivite): void
+    {
+        $this->description_SecteurActivite = $description_SecteurActivite;
     }
 
     /**
      * @return array
      */
-    public function getImagesSecteur(): array
+    public function getImagesSecteurActivite(): array
     {
-        return $this->images_Secteur;
+        return $this->images_SecteurActivite;
     }
 
     /**
-     * @param array $images_Secteur
+     * @param array $images_SecteurActivite
      */
-    public function setImagesSecteur(array $images_Secteur): void
+    public function setImagesSecteurActivite(array $images_SecteurActivite): void
     {
-        $this->images_Secteur = $images_Secteur;
+        $this->images_SecteurActivite = $images_SecteurActivite;
     }
 
 }
