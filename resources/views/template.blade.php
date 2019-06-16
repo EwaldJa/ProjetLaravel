@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Les services proposés
+                    <a class="nav-link" href="{{url('/Services')}}">Les services proposés
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -63,7 +63,7 @@
 @yield('contenu')
 
 <footer class="footer">
-    <p>Formaweb est un petit site web construit comme exemple de développement moderne en php</p>
+    <p>Copyright 2019 - Tout droit réservés</p>
 </footer>
 {!! Html::script('lib/jquery/jquery-3.3.1.slim.min.js') !!}
 {!! Html::script('lib/js/bootstrap.bundle.js') !!}
