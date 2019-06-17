@@ -64,7 +64,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div class="flex-center position-ref" style="height:80%">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -88,7 +88,13 @@
                     <a href="{{ url('/contact') }}">Nous contacter</a>
                     <a href="{{ url('/home') }}">Recrutement</a>
                 </div>
+
             </div>
+
+        </div>
+        <div class="flex-center" style="height:20%">
+            <p>Tel : 0820 205 122</p>
+            <p>Copyright © Limpilux 2019 - Tous droits réservés</p>
         </div>
     </body>
 </html>
