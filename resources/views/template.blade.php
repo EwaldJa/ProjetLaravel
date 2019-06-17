@@ -65,7 +65,7 @@
 
 @yield('contenu')
 
-<footer class="footer mt-5" style= "background-color: #eee;">
+<footer class="footer mt-5" >
     <p>Tel : 0820 205 122</p>
     <p>Copyright © Limpilux 2019 - Tous droits réservés</p>
 </footer>
