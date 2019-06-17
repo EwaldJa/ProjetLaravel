@@ -37,7 +37,7 @@ class ServiceController extends Controller
         $monService->setIntituleService($request->input('intitule_Service'.$monService->getIdService()));
         $monService->setDescriptionService($request->input('description_Service'.$monService->getIdService()));
         $monImage = new Image();
-        $monImage->setLienImage($request->input('image_Service'));
+        $monImage->setLienImage($request->input('image_Service'.$monService->getIdService()));
         if ($monImage->getLienImage() == "") {
             $monImage = null;
         }

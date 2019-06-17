@@ -76,7 +76,7 @@ class ServiceDAO extends DAO
     public function updateService(Service $unService, $monImage){
         DB::table('services')->where('id_Service',$unService->getIdService())->update(['intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
         if($monImage != null){
-            DB::table('images_services')->insert(['fk_Image'=>$monImage->$unService->getIdService(),'lien_Image'=>$monImage->getLienImage()]);
+            DB::table('images_services')->insert(['fk_Image'=>$unService->getIdService(),'lien_Image'=>$monImage->getLienImage()]);
         }
     }
 
