@@ -93,6 +93,15 @@ class ServiceDAO extends DAO
         DB::table('images_services')->where('id_Image','=', $monImage->getIdImage())->delete();
     }
 
+    public function supprService(Service $monService) {
+        $lesImages = $monService->getLesImages();
+        if ($lesImages != null) {
+            foreach ($lesImages as $uneImage) {
+                $this->supprImage($uneImage);
+            }
+        }
+        DB::table('services')->where('id_Service', '=', $monService->getIdService())->delete();
+    }
 
 
 }

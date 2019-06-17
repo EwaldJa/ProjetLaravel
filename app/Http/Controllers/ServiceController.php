@@ -29,6 +29,14 @@ class ServiceController extends Controller
         return view('detailsService',compact('leService','lesImages'));
     }
 
+    public function modifService(InsertionServiceRequest $request) {
+        if($request->input('Valider')) {
+            return $this->updateService($request);
+        } elseif($request->input('Supprimer')) {
+            return $this->supprService($request);
+        }
+    }
+
     public function updateService(InsertionServiceRequest $request){
         $monServiceDAO = new ServiceDAO();
         $monService = new Service();
@@ -57,7 +65,17 @@ class ServiceController extends Controller
         }
         $monServiceDAO = new ServiceDAO();
         $monServiceDAO->creationService($monService, $monImage);
-        $lesServices = $monServiceDAO->getLesServices();
+        return redirect('prestations');
+    }
+
+    public function supprService(InsertionServiceRequest $request) {
+        $monServiceDAO = new ServiceDAO();
+        $monService = new Service();
+        $monService->setIdService($request->input('id_Service'));
+        $monService->setIntituleService($request->input('intitule_Service'.$monService->getIdService()));
+        $monService->setDescriptionService($request->input('description_Service'.$monService->getIdService()));
+        $monService->setLesImages($monServiceDAO->getLesImages($monService->getIdService()));
+        $monServiceDAO->supprService($monService);
         return redirect('prestations');
     }
 
