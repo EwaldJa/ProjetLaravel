@@ -8,10 +8,10 @@
 </head>
 <body>
 
-<nav class="d-block navbar navbar-expand-lg grey-text static-top mr-2" style= "background-color: #d1cece; color: #fa4040 ">
+<nav class="d-block navbar navbar-expand-lg grey-text static-top mr-2" style= "background-color: #c1bebe; color: #fa4040 ">
     <div class="container-fluid">
 
-        <a class="navbar-brand" style="width:30%; min-width: 300px;" href="{{url('/home')}}" ><img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Logo manquant"></a>
+        <a class="navbar-brand" style="width:30%; min-width: 300px;" href="{{url('/home')}}" ><img src="Images/ImageCoordonnee/logo_transparent.png" class="img-fluid rounded" alt="Logo manquant"></a>
         <button class="navbar-toggler" type="button" style="width:30%; max-width: 100px;" data-toggle="collapse" data-target="#LimpiluxNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span><img src="Images/hamburger_menu.png" class="img-fluid float-right"  alt="Menu"></span>
         </button>
