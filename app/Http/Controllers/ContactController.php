@@ -35,8 +35,8 @@ class ContactController extends Controller
 
 
         $monContactDAO = new ContactDAO();
-        $monContactDAO->creationContact($monContact);
-        return redirect('contact');
+        $leContact = $monContactDAO->creationContact($monContact);
+        return view('ContactOK',compact('leContact'));
     }
     //Selection d'un contact par son id
     public function getContactById(VisualisationContactRequest $request)

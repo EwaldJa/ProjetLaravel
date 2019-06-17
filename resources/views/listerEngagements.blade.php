@@ -29,11 +29,11 @@
                                         @auth
                                             {!! Form::open(['url' => 'modifPrestation']) !!}
                                             <div class="form-group {!! $errors->has('intitule_Engagement'.$engagement->getIdEngagement()) ? 'has-error' : '' !!}">
-                                                {!! Form::text('intitule_Engagement'.$engagement->getIdEngagement(), $engagement->getIntituleEngagement(), ['class' => 'form-control', 'placeholder' => 'Intitulé de la prestation']) !!}
+                                                {!! Form::text('intitule_Engagement'.$engagement->getIdEngagement(), $engagement->getIntituleEngagement(), ['class' => 'form-control', 'placeholder' => 'Intitulé de l\'engagement']) !!}
                                                 {!! $errors->first('intitule_Engagement'.$engagement->getIdEngagement(), '<small class="help-block">:message</small>') !!}
                                             </div>
                                             <div class="form-group {!! $errors->has('description_Engagement'.$engagement->getIdEngagement()) ? 'has-error' : '' !!}">
-                                                {!! Form::textarea ('description_Engagement'.$engagement->getIdEngagement(), $engagement->getDescriptionEngagement(), ['class' => 'form-control', 'placeholder' => 'Description de la prestation']) !!}
+                                                {!! Form::textarea ('description_Engagement'.$engagement->getIdEngagement(), $engagement->getDescriptionEngagement(), ['class' => 'form-control', 'placeholder' => 'Description de l\'engagement']) !!}
                                                 {!! $errors->first('description_Engagement'.$engagement->getIdEngagement(), '<small class="help-block">:message</small>') !!}
                                             </div>
                                             <div class="form-group {!! $errors->has('image_Engagement'.$engagement->getIdEngagement()) ? 'has-error' : '' !!}">
@@ -44,7 +44,7 @@
                                                 {{ Form::hidden('id_Engagement', $engagement->getIdEngagement()) }}
                                             </div>
                                             {!! Form::submit('Valider les modifications', ['name' => 'Valider', 'class' => 'btn btn-info pull-right']) !!}
-                                            {!! Form::submit('Supprimer la prestation', ['name' => 'Supprimer', 'class' => 'btn btn-danger pull-right']) !!}
+                                            {!! Form::submit('Supprimer l\'engagement', ['name' => 'Supprimer', 'class' => 'btn btn-danger pull-right']) !!}
                                             {!! Form::close() !!}
                                         @else
                                             <h5 class="card-title">{{ $engagement->getIntituleEngagement() }}</h5>
@@ -54,7 +54,7 @@
                                 </div>
                             </div>
                             <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-4 mt-3 mb-3">
-                                <img src="{{ ($engagement->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image prestation manquante">
+                                <img src="{{ ($engagement->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image engagement manquante">
                                 @auth
                                     {!! Form::open(['url' => 'supprImagePresta']) !!}
                                     <div class="form-group">
@@ -66,7 +66,7 @@
                             </div>
                         @else
                             <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-4 mt-3 mb-3">
-                                <img src="{{ ($engagement->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image prestation manquante">
+                                <img src="{{ ($engagement->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image engagement manquante">
                                 @auth
                                     {!! Form::open(['url' => 'supprImagePresta']) !!}
                                     <div class="form-group">
@@ -82,11 +82,11 @@
                                         @auth
                                             {!! Form::open(['url' => 'modifPrestation']) !!}
                                             <div class="form-group {!! $errors->has('intitule_Engagement'.$engagement->getIdEngagement()) ? 'has-error' : '' !!}">
-                                                {!! Form::text('intitule_Engagement'.$engagement->getIdEngagement(), $engagement->getIntituleEngagement(), ['class' => 'form-control', 'placeholder' => 'Intitulé de la prestation']) !!}
+                                                {!! Form::text('intitule_Engagement'.$engagement->getIdEngagement(), $engagement->getIntituleEngagement(), ['class' => 'form-control', 'placeholder' => 'Intitulé de l\'engagement']) !!}
                                                 {!! $errors->first('intitule_Engagement'.$engagement->getIdEngagement(), '<small class="help-block">:message</small>') !!}
                                             </div>
                                             <div class="form-group {!! $errors->has('description_Engagement'.$engagement->getIdEngagement()) ? 'has-error' : '' !!}">
-                                                {!! Form::textarea ('description_Engagement'.$engagement->getIdEngagement(), $engagement->getDescriptionEngagement(), ['class' => 'form-control', 'placeholder' => 'Description de la prestation']) !!}
+                                                {!! Form::textarea ('description_Engagement'.$engagement->getIdEngagement(), $engagement->getDescriptionEngagement(), ['class' => 'form-control', 'placeholder' => 'Description de l\'engagement']) !!}
                                                 {!! $errors->first('description_Engagement'.$engagement->getIdEngagement(), '<small class="help-block">:message</small>') !!}
                                             </div>
                                             <div class="form-group {!! $errors->has('image_Engagement'.$engagement->getIdEngagement()) ? 'has-error' : '' !!}">
@@ -97,7 +97,7 @@
                                                 {{ Form::hidden('id_Engagement', $engagement->getIdEngagement()) }}
                                             </div>
                                             {!! Form::submit('Valider les modifications', ['name' => 'Valider', 'class' => 'btn btn-info pull-right']) !!}
-                                            {!! Form::submit('Supprimer la prestation', ['name' => 'Supprimer', 'class' => 'btn btn-danger pull-right']) !!}
+                                            {!! Form::submit('Supprimer l\'engagement', ['name' => 'Supprimer', 'class' => 'btn btn-danger pull-right']) !!}
                                             {!! Form::close() !!}
                                         @else
                                             <h5 class="card-title">{{ $engagement->getIntituleEngagement() }}</h5>
@@ -114,11 +114,11 @@
                                     @auth
                                         {!! Form::open(['url' => 'modifPrestation']) !!}
                                         <div class="form-group {!! $errors->has('intitule_Engagement'.$engagement->getIdEngagement()) ? 'has-error' : '' !!}">
-                                            {!! Form::text('intitule_Engagement'.$engagement->getIdEngagement(), $engagement->getIntituleEngagement(), ['class' => 'form-control', 'placeholder' => 'Intitulé de la prestation']) !!}
+                                            {!! Form::text('intitule_Engagement'.$engagement->getIdEngagement(), $engagement->getIntituleEngagement(), ['class' => 'form-control', 'placeholder' => 'Intitulé de l\'engagement']) !!}
                                             {!! $errors->first('intitule_Engagement'.$engagement->getIdEngagement(), '<small class="help-block">:message</small>') !!}
                                         </div>
                                         <div class="form-group {!! $errors->has('description_Engagement'.$engagement->getIdEngagement()) ? 'has-error' : '' !!}">
-                                            {!! Form::textarea ('description_Engagement'.$engagement->getIdEngagement(), $engagement->getDescriptionEngagement(), ['class' => 'form-control', 'placeholder' => 'Description de la prestation']) !!}
+                                            {!! Form::textarea ('description_Engagement'.$engagement->getIdEngagement(), $engagement->getDescriptionEngagement(), ['class' => 'form-control', 'placeholder' => 'Description de l\'engagement']) !!}
                                             {!! $errors->first('description_Engagement'.$engagement->getIdEngagement(), '<small class="help-block">:message</small>') !!}
                                         </div>
                                         <div class="form-group {!! $errors->has('image_Engagement'.$engagement->getIdEngagement()) ? 'has-error' : '' !!}">
@@ -129,7 +129,7 @@
                                             {{ Form::hidden('id_Engagement', $engagement->getIdEngagement()) }}
                                         </div>
                                         {!! Form::submit('Valider les modifications', ['name' => 'Valider', 'class' => 'btn btn-info pull-right']) !!}
-                                        {!! Form::submit('Supprimer la prestation', ['name' => 'Supprimer', 'class' => 'btn btn-danger pull-right']) !!}
+                                        {!! Form::submit('Supprimer l\'engagement', ['name' => 'Supprimer', 'class' => 'btn btn-danger pull-right']) !!}
                                         {!! Form::close() !!}
                                     @else
                                         <h5 class="card-title">{{ $engagement->getIntituleEngagement() }}</h5>
@@ -148,18 +148,18 @@
                             <div class="card-body">
                                 {!! Form::open(['url' => 'ajoutPrestation']) !!}
                                 <div class="form-group {!! $errors->has('intitule_Engagement') ? 'has-error' : '' !!}">
-                                    {!! Form::text('intitule_Engagement', null, ['class' => 'form-control', 'placeholder' => 'Intitulé de la prestation']) !!}
+                                    {!! Form::text('intitule_Engagement', null, ['class' => 'form-control', 'placeholder' => 'Intitulé de l\'engagement']) !!}
                                     {!! $errors->first('intitule_Engagement', '<small class="help-block">:message</small>') !!}
                                 </div>
                                 <div class="form-group {!! $errors->has('description_Engagement') ? 'has-error' : '' !!}">
-                                    {!! Form::textarea ('description_Engagement', null, ['class' => 'form-control', 'placeholder' => 'Description de la prestation']) !!}
+                                    {!! Form::textarea ('description_Engagement', null, ['class' => 'form-control', 'placeholder' => 'Description de l\'engagement']) !!}
                                     {!! $errors->first('description_Engagement', '<small class="help-block">:message</small>') !!}
                                 </div>
                                 <div class="form-group {!! $errors->has('image_Engagement') ? 'has-error' : '' !!}">
                                     {!! Form::text('image_Engagement', null, ['class' => 'form-control', 'placeholder' => 'Placer ici le lien de l\'image']) !!}
                                     {!! $errors->first('image_Engagement', '<small class="help-block">:message</small>') !!}
                                 </div>
-                                {!! Form::submit('Ajouter la prestation', ['class' => 'btn btn-info pull-right']) !!}
+                                {!! Form::submit('Ajouter l\'engagement', ['class' => 'btn btn-info pull-right']) !!}
                                 {!! Form::close() !!}
                             </div>
                         </div>
