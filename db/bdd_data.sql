@@ -21,4 +21,22 @@ INSERT INTO `engagements` (`id_Engagement`, `intitule_Engagement`, `description_
 (1, 'Engagements sociaux', 'Nos salariés sont constamment formés aux méthodes de nettoyage mais également à la vigilance en termes de règles de sécurité. \r\nLe dialogue, le respect des compétences et du travail réalisé par les hommes et les femmes formant nos équipes et le socle de notre pérennité.'),
 (2, 'Engagements environnementaux', 'Nous utilisons des produits de fournisseurs sont tous engagés dans des processus de respect de l’environnement. ');
 
--- --------------------------------------------------------
+
+--
+-- Déchargement des données de la table `services`
+--
+
+INSERT INTO `services` (`id_Service`, `intitule_Service`, `description_Service`) VALUES
+(1, 'Nettoyage tout type de site', 'Nettoyage réguliers de bureaux, salle de formation, de réceptions, boutiques, usines, zone de stockage…'),
+(2, 'Nettoyage de vitrerie', 'Solutions adaptées au nettoyage de vitrerie'),
+(3, 'Fourniture', 'Fourniture de produits d’hygiène pour les sanitaires (appareils et consommables)'),
+(4, 'Nettoyage sur-mesure de vos locaux', 'Nettoyage spécifiques des différents types de sols : nettoyage de moquettes, lustrage de parquet, cristallisation des marbres, traitement des sols en thermoplastique');
+
+--
+-- Déchargement des données de la table `images_services`
+--
+
+INSERT INTO `images_services` (`id_Image`, `fk_Image`, `lien_Image`) VALUES
+(1, 4, 'Images\\ImageService\\moquette.jpg'),
+(2, 2, 'Images\\ImageService\\laveurVitre.png'),
+(3, 3, 'Images\\ImageService\\produits.png');
