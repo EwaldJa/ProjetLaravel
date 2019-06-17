@@ -61,16 +61,23 @@ class ServiceDAO extends DAO
         $limage = new Image();
         $limage -> setIdImage($objet -> id_Image);
         $limage -> setFKImage($objet -> fk_Image);
-        $limage -> setLienService($objet -> lien_Image);
+        $limage -> setLienImage($objet -> lien_Image);
         return $limage;
     }
 
-    public function creationService(Service $unService){
-        DB::table('services')->insert(['intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
+    public function creationService(Service $unService, $monImage){
+        $id = DB::table('services')->insert(['intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
+        if($monImage != null){
+            $monImage->setFKImage($id);
+            DB::table('images_services')->insert(['fk_Image'=>$monImage->getFKImage(),'lien_Image'=>$monImage->getLienImage()]);
+        }
     }
 
-    public function updateService(Service $unService){
+    public function updateService(Service $unService, $monImage){
         DB::table('services')->where('id_Service',$unService->getIdService())->update(['intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
+        if($monImage != null){
+            DB::table('images_services')->insert(['fk_Image'=>$monImage->$unService->getIdService(),'lien_Image'=>$monImage->getLienImage()]);
+        }
     }
 
 

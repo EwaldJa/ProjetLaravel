@@ -61,7 +61,7 @@ class EngagementDAO extends DAO
         $limage = new Image();
         $limage -> setIdImage($objet -> id_Image);
         $limage -> setFKImage($objet -> fk_Image);
-        $limage -> setLienEngagement($objet -> lien_Image);
+        $limage -> setLienImage($objet -> lien_Image);
         return $limage;
     }
 
