@@ -70,7 +70,11 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-
+                <li class="nav-item active">
+                    <a href="{{ url('/implantation') }}">
+                        <img src="Images/ImageCoordonnee/logoLoc.png" class="img-fluid rounded" alt="Logo Maps manquant" style="max-height: 50px">
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

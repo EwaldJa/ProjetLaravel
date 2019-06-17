@@ -85,7 +85,7 @@
 
             <div class="content">
                 <div class="title ">
-                    <img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Image prestation manquante" width="90%">
+                    <img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Logo entreprise manquant" width="90%">
                 </div>
                 <div class="links mt-5 m-b-md">
                         Nettoyage et entretien de locaux à Paris
@@ -101,7 +101,7 @@
                 <div class="links m-b-md">
                     <a href="{{ url('/implantation') }}">
                         Implantation
-                        <img src="Images/ImageCoordonnee/logoLoc.png" class="img-fluid rounded" alt="Image prestation manquante" style="max-height: 50px">
+                        <img src="Images/ImageCoordonnee/logoLoc.png" class="img-fluid rounded" alt="Logo Maps manquant" style="max-height: 50px">
                     </a>
                 </div>
             </div>
