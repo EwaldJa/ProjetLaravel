@@ -32,6 +32,7 @@ Route::get('histoire','HistoireController@getHistoires');
 Route::get('contact','ContactController@getContact');
 
 Route::get('engagements','engagementController@getEngagements');
+Route::get('envoyerContact','ContactController@envoyerContact');
 Auth::routes();
 
 Route::get('home', function () {

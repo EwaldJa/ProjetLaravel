@@ -15,10 +15,7 @@ class InsertionContactRequest extends FormRequest
      */
     public function authorize()
     {
-        if (Auth::user() != null) {
-            return true;
-        }
-        return false;
+        return true;
     }
 
     /**
@@ -28,11 +25,16 @@ class InsertionContactRequest extends FormRequest
      */
     public function rules()
     {
-        $id = Input::get('id_Service');
         return [
-            //
-            'intitule_Service'.$id => 'required|min:5|max:100',
-            'description_Service'.$id => 'required|max:2000',
+            'nom_Contact'=>'required|min:3|max:30',
+            'prenom_Contact'=>'required|min:3|max:30',
+            'email_Contact'=>'required|min:10|max:100',
+            'telephone_Contact'=>'required|min:10|max:50|number',
+            'societe_Contact'=>'required|min:3|max:100',
+            'codepostal_Contact'=>'required|min:3|max:10',
+            'adresse_Contact'=>'required|max:200',
+            'objet_Contact'=>'required|max:300',
+            'message_Contact'=>'required|max:2000'
         ];
     }
 }
