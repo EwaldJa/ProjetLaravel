@@ -99,7 +99,7 @@
                     <a href="{{ url('/home') }}">Recrutement</a>
                 </div>
                 <div class="links m-b-md">
-                    <a href="{{ url('/accueil') }}">
+                    <a href="{{ url('/implantation') }}">
                         Implantation
                         <img src="Images/ImageCoordonnee/logoLoc.png" class="img-fluid rounded" alt="Image prestation manquante" style="max-height: 50px">
                     </a>
