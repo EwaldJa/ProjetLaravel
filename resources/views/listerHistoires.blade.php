@@ -5,14 +5,9 @@
 @endsection
 
 @section('titreItem')
-
-    <div class="row mt-5 ml-0 mr-2">
+    <div class="row mt-5 sansmarge">
         <div class="d-inline-block col-md-10 offset-md-1 col-lg-8 offset-lg-2 grisclair">
-            <div class="card mt-3 mb-3" style="width: 25em">
-                <div class="card-body">
-                    <h1 class="card-title">Notre histoire</h1>
-                </div>
-            </div>
+            <h1 class=" mt-3 mb-3">Notre histoire</h1>
         </div>
     </div>
 

@@ -66,9 +66,12 @@ class ServiceDAO extends DAO
     }
 
     public function creationService(Service $unService){
-        DB::table('services')->insert(['id_Service'=>$unService->getIdService(),'intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
+        DB::table('services')->insert(['intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
     }
 
+    public function updateService(Service $unService){
+        DB::table('services')->where('id_Service',$unService->getIdService())->update(['intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
+    }
 
 
 

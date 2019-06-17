@@ -13,7 +13,7 @@ class SecteurActiviteDAO extends DAO
         $secteurActivite = DB::table('secteurs_activite')->get();
         $lesSecteurActivite = array();
         foreach ($secteurActivite as $leSecteurActivite) {
-            $id_SecteurActivite = $leSecteurActivite->id_SecteurActivite;
+            $id_SecteurActivite = $leSecteurActivite->id_Secteur;
             $lesSecteurActivite[$id_SecteurActivite] = $this->creerObjetMetier($leSecteurActivite);
         }
         return $lesSecteurActivite;
@@ -42,11 +42,11 @@ class SecteurActiviteDAO extends DAO
     protected function creerObjetMetier(\stdClass $objet)
     {
         $leSecteurActivite = new SecteurActivite();
-        $leSecteurActivite->setIdSecteurActivite($objet->id_SecteurActivite);
-        $leSecteurActivite->setIntituleSecteurActivite($objet->intitule_SecteurActivite);
-        $leSecteurActivite->setDescriptionSecteurActivite($objet->description_SecteurActivite);
+        $leSecteurActivite->setIdSecteurActivite($objet->id_Secteur);
+        $leSecteurActivite->setIntituleSecteurActivite($objet->intitule_Secteur);
+        $leSecteurActivite->setDescriptionSecteurActivite($objet->description_Secteur);
         //Il faut maintenant sélectionner les images associées au secteurActivite
-        $lesImages = $this->getLesImages($objet->id_SecteurActivite);
+        $lesImages = $this->getLesImages($objet->id_Secteur);
         //Si le secteurActivite possède des images
         if($lesImages){
             //On modifie l'attribut images_SecteurActivite de la classe iSecteurActivite

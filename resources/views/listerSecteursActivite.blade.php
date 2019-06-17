@@ -6,14 +6,9 @@
 
 @section('titreItem')
     <div class="row mt-5 sansmarge">
-        <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <div class="card" style="width: 25em">
-                <div class="card-body">
-                    <h1 class="card-title">Nos secteurs d'activité</h1>
-                </div>
-            </div>
+        <div class="d-inline-block col-md-10 offset-md-1 col-lg-8 offset-lg-2 grisclair">
+            <h1 class=" mt-3 mb-3">Les secteurs d'activité de nos clients</h1>
         </div>
-
     </div>
 @endsection
 
