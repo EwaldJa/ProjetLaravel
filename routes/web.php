@@ -45,6 +45,10 @@ Route::get('histoire','HistoireController@getHistoires');
 Route::get('contact','ContactController@getContact');
 Route::post('envoyerContact','ContactController@envoyerContact');
 Route::post('VoirContact','ContactController@getContactById');
+Route::get('envoyerContact', function () {
+    return view('welcome');
+});
+Route::post('supprimerContact','ContactController@supprContact');
 
 Route::get('engagements','engagementController@getEngagements');
 

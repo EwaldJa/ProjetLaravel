@@ -61,7 +61,10 @@
                     </div>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{url('/contact')}}">Contact
+                    <a class="nav-link" href="{{url('/contact')}}">
+                        @auth Messages
+                        @else Contact
+                        @endauth
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>

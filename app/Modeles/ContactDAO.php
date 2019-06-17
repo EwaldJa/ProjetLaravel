@@ -58,6 +58,13 @@ class ContactDAO extends DAO
             'objet_Contact'=>$unContact->getObjetContact(),
             'message_Contact'=>$unContact->getMessageContact()
         ]);
+        $id = DB::getPDO()->lastInsertId();
+        $unContact->setIdContact($id);
+        return $unContact;
+    }
+
+    public function supprContact($id_Contact) {
+        DB::table('contacts')->where('id_Contact','=', $id_Contact)->delete();
     }
 
 
