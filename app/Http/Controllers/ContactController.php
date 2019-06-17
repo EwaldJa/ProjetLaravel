@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\InsertionConfRequest;
+use App\Http\Requests\InsertionContactRequest;
 use App\Metier\Image;
 use App\Metier\Contact;
 
 use App\Modeles\ContactDAO;
+use Illuminate\Support\Facades\Auth;
+
 //use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -13,9 +16,12 @@ class ContactController extends Controller
     //
     //Selection de toutes les conférences
     public function getContact(){
-        $contact = new ContactDAO();
-        $lesContacts = $contact->getLesContacts();
-        return view('listerContacts',compact('lesContacts'));
+        if (Auth::user() != null) {
+            $contact = new ContactDAO();
+            $lesContacts = $contact->getLesContacts();
+            return view('listerContacts',compact('lesContacts'));
+        }
+        return view('Contacter');
     }
 
     //Selection d'une conference par son id
@@ -28,7 +34,14 @@ class ContactController extends Controller
         //laConference représente la conférence qui a été sélectionnée
         //lesCommentaires représente la liste des commentaires associés à cette conférence
         return view('listerCommentaires',compact('laConference','lesCommentaires'));
+
     }
+    public function envoyerContact(InsertionContactRequestRequest $request)
+    {
+        return view('welcome');
+    }
+
+
     /*
         public function ajoutConference(){
             return view('formAjoutConference');
