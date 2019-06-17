@@ -48,6 +48,7 @@ Route::post('VoirContact','ContactController@getContactById');
 Route::get('envoyerContact', function () {
     return view('welcome');
 });
+Route::post('supprimerContact','ContactController@supprContact');
 
 Route::get('engagements','engagementController@getEngagements');
 

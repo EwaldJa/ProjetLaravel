@@ -25,13 +25,20 @@
                     <h5 class="card-title">Objet : {{$leContact->getObjetContact()}}</h5>
                     <p class="card-text">{{$leContact->getMessageContact()}}</p>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Coordonnées de l'entreprise :</li>
+                        <li class="list-group-item">Coordonnées :</li>
+                        <li class="list-group-item">{{$leContact->getTelephoneContact()}}</li>
+                        <li class="list-group-item">{{$leContact->getEmailContact()}}</li>
                         <li class="list-group-item">{{$leContact->getAdresseContact()}}</li>
                         <li class="list-group-item">{{$leContact->getCodepostalContact()}}</li>
                     </ul>
                 </div>
                 <div class="card-footer">
-                    {{$leContact->getTelephoneContact()}} - {{$leContact->getEmailContact()}}
+                    {!! Form::open(['url' => 'supprimerContact']) !!}
+                    <div class="form-group">
+                        {{ Form::hidden('id_Contact', $leContact->getIdContact()) }}
+                    </div>
+                    {!! Form::submit('Supprimer le message', ['name' => 'Supprimer', 'class' => 'btn btn-danger pull-right']) !!}
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

@@ -95,7 +95,11 @@
                     <a href="{{ url('/secteurs') }}">Secteurs d'activité</a>
                     <a href="{{ url('/histoire') }}">Histoire</a>
                     <a href="{{ url('/engagements') }}">Engagements</a>
-                    <a href="{{ url('/contact') }}">Nous contacter</a>
+                    <a href="{{ url('/contact') }}">
+                        @auth Demandes de contact
+                        @else Nous contacter
+                        @endauth
+                    </a>
                 <!--    <a href="{{ url('/home') }}">Recrutement</a> -->
                 </div>
                 <div class="links m-b-md">

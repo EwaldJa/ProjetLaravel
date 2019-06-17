@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\VisualisationContactRequest;
 use App\Http\Requests\InsertionContactRequest;
+use App\Http\Requests\SuppressionContactRequest;
 use App\Metier\Contact;
 
 use App\Modeles\ContactDAO;
@@ -44,5 +45,12 @@ class ContactController extends Controller
         $contactDAO = new ContactDAO();
         $leContact = $contactDAO->getContactById($request->input('id_Contact'));
         return view('detailsContact',compact('leContact'));
+    }
+
+    public function supprContact(SuppressionContactRequest $request) {
+        $contactDAO = new ContactDAO();
+        $contactDAO->supprContact($request->input('id_Contact'));
+        $lesContacts = $contactDAO->getLesContacts();
+        return view('listerContacts',compact('lesContacts'));
     }
 }

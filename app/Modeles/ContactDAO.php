@@ -63,6 +63,10 @@ class ContactDAO extends DAO
         return $unContact;
     }
 
+    public function supprContact($id_Contact) {
+        DB::table('contacts')->where('id_Contact','=', $id_Contact)->delete();
+    }
+
 
 
 
