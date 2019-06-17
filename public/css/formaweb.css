@@ -26,20 +26,23 @@ body {
     font-family:         'AlikeAngular-Regular';
     src:                 url('font/AlikeAngular-Regular.ttf');
 }
+@font-face
+{
+    font-family:         'stratford';
+    src:                 url('font/stratford_serial-regular-webfont.woff');
+}
 .card-body{
 
-    font-family: 'Alike-Regular';
+    font-family: 'stratford';
 }
 h1{
     text-underline: #cf0000;
     align-items: center;
     display: flex;
     justify-content: center;
-    font-family:'AlikeAngular-Regular';
     color: #222;
 }
 .card-body h5{
 
-    font-family:'AlikeAngular-Regular';
     color: #bf0000;
 }
