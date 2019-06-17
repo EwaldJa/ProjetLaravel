@@ -40,3 +40,10 @@ INSERT INTO `images_services` (`id_Image`, `fk_Image`, `lien_Image`) VALUES
 (1, 4, 'Images\\ImageService\\moquette.jpg'),
 (2, 2, 'Images\\ImageService\\laveurVitre.png'),
 (3, 3, 'Images\\ImageService\\produits.png');
+
+
+INSERT INTO `secteurs_activite` (`id_Secteur`, `intitule_Secteur`, `description_Secteur`) VALUES
+(1, 'Tertiaire', 'Bureaux, salles de formation, salles de conférence.\r\nNous intervenons en fonction de vos besoins qui sont déterminés ensemble. \r\nToute problématique est prise en compte : votre surface, la configuration, les natures de sols, le mobilier, l’environnement. \r\nVos besoins sont analysés et respectés : fréquence des prestations, désir qualité, budget.'),
+(2, 'INDUSTRIE et LOGISTIQUE', 'Entretien des locaux sociaux, des lignes de production, des lieux de stockage et des machines.\r\nNous nous adaptons à chaque problématique afin d’être le plus efficace et performant possible. \r\nVos horaires d’activité, vos contraintes de production sont respectées afin de ne pas gêner votre activité et de travailler en toute sécurité. \r\nMettre en place des organisations spécifiques à chaque site est notre force.'),
+(3, 'Surfaces de vente', 'Assurer la propreté de boutiques avant l’ouverture afin de laisser le personnel de vente se consacrer à sa clientèle.'),
+(4, 'Entretien d\'immeubles', 'Assurer le nettoyage des parties communes, la rotation des containers sur la voirie, le 	nettoyage des vitres, le nettoyage des parking');
