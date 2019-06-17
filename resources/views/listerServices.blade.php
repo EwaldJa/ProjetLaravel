@@ -30,8 +30,12 @@
                                 <div class="col-sm-12 col-md-9 col-lg-8 mt-3 mb-3">
                                     <div class="card" style="height: auto">
                                         <div class="card-body">
-                                            <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
-                                            <p class="card-text">{{ $service->getDescriptionService() }}</p>
+                                            @auth
+
+                                            @else
+                                                <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
+                                                <p class="card-text">{{ $service->getDescriptionService() }}</p>
+                                            @endauth
                                         </div>
                                     </div>
                                 </div>
