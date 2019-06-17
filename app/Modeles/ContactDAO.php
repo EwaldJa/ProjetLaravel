@@ -28,22 +28,11 @@ class ContactDAO extends DAO
         return $contact;
     }
 
-    public function getLesImages($id_Contact) {
-        $images = DB::table('images_contacts')->where('fk_Image', '=', $id_Contact)->get();
-        $lesImages = array();
-        $i = 0;
-        foreach ($images as $limage) {
-            $lesImages[$i] = $this->creerImageMetier($limage);
-            $i = $i + 1;
-        }
-        return $lesImages;
-    }
-
     protected function creerObjetMetier(\stdClass $objet)
     {
         $leContact = new Contact();
 
-
+        $leContact->setIdContact($objet->id_Contact);
         $leContact->setNomContact($objet->nom_Contact);
         $leContact->setPrenomContact($objet->prenom_Contact);
         $leContact->setEmailContact($objet->email_Contact);
@@ -54,14 +43,6 @@ class ContactDAO extends DAO
         $leContact->setObjetContact($objet->objet_Contact);
         $leContact->setMessageContact($objet->message_Contact);
         return $leContact;
-    }
-
-    protected function creerImageMetier(\stdClass $objet) {
-        $limage = new Image();
-        $limage -> setIdImage($objet -> id_Image);
-        $limage -> setFKImage($objet -> fk_Image);
-        $limage -> setLienContact($objet -> lien_Image);
-        return $limage;
     }
 
 
