@@ -26,7 +26,7 @@
                                 <div class="card" style="height: auto">
                                     <div class="card-body">
                                         @auth
-                                            {!! Form::open(['url' => 'modifPrestation']) !!}
+                                            {!! Form::open(['url' => 'modifSecteur']) !!}
                                             <div class="form-group {!! $errors->has('intitule_SecteurActivite'.$secteurActivite->getIdSecteurActivite()) ? 'has-error' : '' !!}">
                                                 {!! Form::text('intitule_SecteurActivite'.$secteurActivite->getIdSecteurActivite(), $secteurActivite->getIntituleSecteurActivite(), ['class' => 'form-control', 'placeholder' => 'Intitulé du secteur']) !!}
                                                 {!! $errors->first('intitule_SecteurActivite'.$secteurActivite->getIdSecteurActivite(), '<small class="help-block">:message</small>') !!}
@@ -55,7 +55,7 @@
                             <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-4 mt-3 mb-3">
                                 <img src="{{ ($secteurActivite->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image secteur manquante">
                                 @auth
-                                    {!! Form::open(['url' => 'supprImagePresta']) !!}
+                                    {!! Form::open(['url' => 'supprImageSecteur']) !!}
                                     <div class="form-group">
                                         {{ Form::hidden('id_Image', ($secteurActivite->getLesImages())[0]->getIdImage()) }}
                                     </div>
@@ -67,7 +67,7 @@
                             <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-4 mt-3 mb-3">
                                 <img src="{{ ($secteurActivite->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image secteur manquante">
                                 @auth
-                                    {!! Form::open(['url' => 'supprImagePresta']) !!}
+                                    {!! Form::open(['url' => 'supprImageSecteur']) !!}
                                     <div class="form-group">
                                         {{ Form::hidden('id_Image', ($secteurActivite->getLesImages())[0]->getIdImage()) }}
                                     </div>
@@ -79,7 +79,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         @auth
-                                            {!! Form::open(['url' => 'modifPrestation']) !!}
+                                            {!! Form::open(['url' => 'modifSecteur']) !!}
                                             <div class="form-group {!! $errors->has('intitule_SecteurActivite'.$secteurActivite->getIdSecteurActivite()) ? 'has-error' : '' !!}">
                                                 {!! Form::text('intitule_SecteurActivite'.$secteurActivite->getIdSecteurActivite(), $secteurActivite->getIntituleSecteurActivite(), ['class' => 'form-control', 'placeholder' => 'Intitulé du secteur']) !!}
                                                 {!! $errors->first('intitule_SecteurActivite'.$secteurActivite->getIdSecteurActivite(), '<small class="help-block">:message</small>') !!}
@@ -111,7 +111,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     @auth
-                                        {!! Form::open(['url' => 'modifPrestation']) !!}
+                                        {!! Form::open(['url' => 'modifSecteur']) !!}
                                         <div class="form-group {!! $errors->has('intitule_SecteurActivite'.$secteurActivite->getIdSecteurActivite()) ? 'has-error' : '' !!}">
                                             {!! Form::text('intitule_SecteurActivite'.$secteurActivite->getIdSecteurActivite(), $secteurActivite->getIntituleSecteurActivite(), ['class' => 'form-control', 'placeholder' => 'Intitulé du secteur']) !!}
                                             {!! $errors->first('intitule_SecteurActivite'.$secteurActivite->getIdSecteurActivite(), '<small class="help-block">:message</small>') !!}
@@ -145,7 +145,7 @@
                     <div class="col-sm-12 mt-3 mb-3">
                         <div class="card" style="height: auto">
                             <div class="card-body">
-                                {!! Form::open(['url' => 'ajoutPrestation']) !!}
+                                {!! Form::open(['url' => 'ajoutSecteur']) !!}
                                 <div class="form-group {!! $errors->has('intitule_SecteurActivite') ? 'has-error' : '' !!}">
                                     {!! Form::text('intitule_SecteurActivite', null, ['class' => 'form-control', 'placeholder' => 'Intitulé du secteur']) !!}
                                     {!! $errors->first('intitule_SecteurActivite', '<small class="help-block">:message</small>') !!}

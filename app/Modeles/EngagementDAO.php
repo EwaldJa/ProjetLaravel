@@ -66,7 +66,7 @@ class EngagementDAO extends DAO
     }
 
     public function creationEngagement(Engagement $unEngagement, $monImage){
-        DB::table('enregistrement')->insert(['intitule'=>$unEngagement->getIntituleEngagement(),'description'=>$unEngagement->getDescriptionEngagement(),'categorie','engagements']);
+        DB::table('enregistrement')->insert(['intitule'=>$unEngagement->getIntituleEngagement(),'description'=>$unEngagement->getDescriptionEngagement(),'categorie'=>'engagements']);
         $id = DB::getPDO()->lastInsertId();
         if($monImage != null){
             $monImage->setFKImage($id);

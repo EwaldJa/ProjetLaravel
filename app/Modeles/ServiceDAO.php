@@ -66,7 +66,7 @@ class ServiceDAO extends DAO
     }
 
     public function creationService(Service $unService, $monImage){
-        DB::table('enregistrement')->insert(['intitule'=>$unService->getIntituleService(),'description'=>$unService->getDescriptionService(),'categorie','services']);
+        DB::table('enregistrement')->insert(['intitule'=>$unService->getIntituleService(),'description'=>$unService->getDescriptionService(),'categorie'=>'services']);
         $id = DB::getPDO()->lastInsertId();
         if($monImage != null){
             $monImage->setFKImage($id);

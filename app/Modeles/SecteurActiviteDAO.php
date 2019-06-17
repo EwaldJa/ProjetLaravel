@@ -66,7 +66,7 @@ class SecteurActiviteDAO extends DAO
     }
 
     public function creationSecteurActivite(SecteurActivite $unSecteurActivite, $monImage){
-        DB::table('enregistrement')->insert(['intitule'=>$unSecteurActivite->getIntituleSecteurActivite(),'description'=>$unSecteurActivite->getDescriptionSecteurActivite(),'categorie','secteurs']);
+        DB::table('enregistrement')->insert(['intitule'=>$unSecteurActivite->getIntituleSecteurActivite(),'description'=>$unSecteurActivite->getDescriptionSecteurActivite(),'categorie'=>'secteurs']);
         $id = DB::getPDO()->lastInsertId();
         if($monImage != null){
             $monImage->setFKImage($id);

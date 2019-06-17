@@ -39,6 +39,9 @@ Route::post('modifPrestation','ServiceController@modifService');
 Route::post('supprImagePresta','ServiceController@supprImage');
 
 Route::get('secteurs','SecteurController@getSecteurs');
+Route::post('ajoutSecteur','SecteurController@creationSecteur');
+Route::post('modifSecteur','SecteurController@modifSecteur');
+Route::post('supprImageSecteur','SecteurController@supprSecteur');
 
 Route::get('histoire','HistoireController@getHistoires');
 
@@ -50,8 +53,10 @@ Route::get('envoyerContact', function () {
 });
 Route::post('supprimerContact','ContactController@supprContact');
 
-Route::get('engagements','engagementController@getEngagements');
-
+Route::get('engagements','EngagementController@getEngagements');
+Route::post('ajoutEngagement','EngagementController@creationEngagement');
+Route::post('modifEngagement','EngagementController@modifEngagement');
+Route::post('supprImageEngagement','EngagementController@supprEngagement');
 
 
 Auth::routes(['register'=>false]);

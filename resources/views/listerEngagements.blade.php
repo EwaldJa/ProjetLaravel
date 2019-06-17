@@ -27,7 +27,7 @@
                                 <div class="card" style="height: auto">
                                     <div class="card-body">
                                         @auth
-                                            {!! Form::open(['url' => 'modifPrestation']) !!}
+                                            {!! Form::open(['url' => 'modifEngagement']) !!}
                                             <div class="form-group {!! $errors->has('intitule_Engagement'.$engagement->getIdEngagement()) ? 'has-error' : '' !!}">
                                                 {!! Form::text('intitule_Engagement'.$engagement->getIdEngagement(), $engagement->getIntituleEngagement(), ['class' => 'form-control', 'placeholder' => 'Intitulé de l\'engagement']) !!}
                                                 {!! $errors->first('intitule_Engagement'.$engagement->getIdEngagement(), '<small class="help-block">:message</small>') !!}
@@ -56,7 +56,7 @@
                             <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-4 mt-3 mb-3">
                                 <img src="{{ ($engagement->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image engagement manquante">
                                 @auth
-                                    {!! Form::open(['url' => 'supprImagePresta']) !!}
+                                    {!! Form::open(['url' => 'supprImageEngagement']) !!}
                                     <div class="form-group">
                                         {{ Form::hidden('id_Image', ($engagement->getLesImages())[0]->getIdImage()) }}
                                     </div>
@@ -68,7 +68,7 @@
                             <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-4 mt-3 mb-3">
                                 <img src="{{ ($engagement->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image engagement manquante">
                                 @auth
-                                    {!! Form::open(['url' => 'supprImagePresta']) !!}
+                                    {!! Form::open(['url' => 'supprImageEngagement']) !!}
                                     <div class="form-group">
                                         {{ Form::hidden('id_Image', ($engagement->getLesImages())[0]->getIdImage()) }}
                                     </div>
@@ -80,7 +80,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         @auth
-                                            {!! Form::open(['url' => 'modifPrestation']) !!}
+                                            {!! Form::open(['url' => 'modifEngagement']) !!}
                                             <div class="form-group {!! $errors->has('intitule_Engagement'.$engagement->getIdEngagement()) ? 'has-error' : '' !!}">
                                                 {!! Form::text('intitule_Engagement'.$engagement->getIdEngagement(), $engagement->getIntituleEngagement(), ['class' => 'form-control', 'placeholder' => 'Intitulé de l\'engagement']) !!}
                                                 {!! $errors->first('intitule_Engagement'.$engagement->getIdEngagement(), '<small class="help-block">:message</small>') !!}
@@ -112,7 +112,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     @auth
-                                        {!! Form::open(['url' => 'modifPrestation']) !!}
+                                        {!! Form::open(['url' => 'modifEngagement']) !!}
                                         <div class="form-group {!! $errors->has('intitule_Engagement'.$engagement->getIdEngagement()) ? 'has-error' : '' !!}">
                                             {!! Form::text('intitule_Engagement'.$engagement->getIdEngagement(), $engagement->getIntituleEngagement(), ['class' => 'form-control', 'placeholder' => 'Intitulé de l\'engagement']) !!}
                                             {!! $errors->first('intitule_Engagement'.$engagement->getIdEngagement(), '<small class="help-block">:message</small>') !!}
@@ -146,7 +146,7 @@
                     <div class="col-sm-12 mt-3 mb-3">
                         <div class="card" style="height: auto">
                             <div class="card-body">
-                                {!! Form::open(['url' => 'ajoutPrestation']) !!}
+                                {!! Form::open(['url' => 'ajoutEngagement']) !!}
                                 <div class="form-group {!! $errors->has('intitule_Engagement') ? 'has-error' : '' !!}">
                                     {!! Form::text('intitule_Engagement', null, ['class' => 'form-control', 'placeholder' => 'Intitulé de l\'engagement']) !!}
                                     {!! $errors->first('intitule_Engagement', '<small class="help-block">:message</small>') !!}
