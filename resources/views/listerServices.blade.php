@@ -43,7 +43,8 @@
                                                     <div class="form-group">
                                                         {{ Form::hidden('id_Service', $service->getIdService()) }}
                                                     </div>
-                                                {!! Form::submit('Valider les modifications', ['class' => 'btn btn-info pull-right']) !!}
+                                                {!! Form::submit('Valider les modifications', ['name' => 'Valider', 'class' => 'btn btn-info pull-right']) !!}
+                                                {!! Form::submit('Supprimer la prestation', ['name' => 'Supprimer', 'class' => 'btn btn-danger pull-right']) !!}
                                                 {!! Form::close() !!}
                                             @else
                                                 <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
@@ -95,7 +96,8 @@
                                                 <div class="form-group">
                                                     {{ Form::hidden('id_Service', $service->getIdService()) }}
                                                 </div>
-                                                {!! Form::submit('Valider les modifications', ['class' => 'btn btn-info pull-right']) !!}
+                                                {!! Form::submit('Valider les modifications', ['name' => 'Valider', 'class' => 'btn btn-info pull-right']) !!}
+                                                {!! Form::submit('Supprimer la prestation', ['name' => 'Supprimer', 'class' => 'btn btn-danger pull-right']) !!}
                                                 {!! Form::close() !!}
                                             @else
                                                 <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
@@ -126,7 +128,8 @@
                                             <div class="form-group">
                                                 {{ Form::hidden('id_Service', $service->getIdService()) }}
                                             </div>
-                                            {!! Form::submit('Valider les modifications', ['class' => 'btn btn-info pull-right']) !!}
+                                            {!! Form::submit('Valider les modifications', ['name' => 'Valider', 'class' => 'btn btn-info pull-right']) !!}
+                                            {!! Form::submit('Supprimer la prestation', ['name' => 'Supprimer', 'class' => 'btn btn-danger pull-right']) !!}
                                             {!! Form::close() !!}
                                         @else
                                                 <h5 class="card-title">{{ $service->getIntituleService() }}</h5>

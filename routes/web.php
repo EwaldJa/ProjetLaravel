@@ -22,7 +22,7 @@ Route::get('accueil',function () {
 });
 Route::get('prestations','ServiceController@getServices');
 Route::post('ajoutPrestation','ServiceController@creationService');
-Route::post('modifPrestation','ServiceController@updateService');
+Route::post('modifPrestation','ServiceController@modifService');
 Route::post('supprImagePresta','ServiceController@supprImage');
 
 Route::get('secteurs','SecteurController@getSecteurs');
@@ -33,7 +33,7 @@ Route::get('contact','ContactController@getContact');
 
 Route::get('engagements','engagementController@getEngagements');
 Route::post('envoyerContact','ContactController@envoyerContact');
-Auth::routes();
+
 
 Route::get('home', function () {
     return view('welcome');
