@@ -66,7 +66,7 @@
 
 <footer class="footer mt-5">
     <p>Tel : 0820 205 122</p>
-    <p>Copyright 2019 - Tout droit réservés</p>
+    <p>Copyright Limpilux 2019 - Tout droit réservés</p>
 </footer>
 {!! Html::script('lib/jquery/jquery-3.3.1.slim.min.js') !!}
 {!! Html::script('lib/js/bootstrap.bundle.js') !!}

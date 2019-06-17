@@ -77,7 +77,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Image prestation manquante">
+                    <img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Image prestation manquante" width="70%">
                 </div>
 
                 <div class="links">
