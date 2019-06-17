@@ -10,10 +10,10 @@ class ServiceDAO extends DAO
 
     public function getLesServices()
     {
-        $services = DB::table('services')->get();
+        $services = DB::table('enregistrement')->where('categorie', '=', 'services')->get();
         $lesServices = array();
         foreach ($services as $leService) {
-            $id_Service = $leService->id_Service;
+            $id_Service = $leService->id_enregistrement;
             $lesServices[$id_Service] = $this->creerObjetMetier($leService);
         }
         return $lesServices;
@@ -23,13 +23,13 @@ class ServiceDAO extends DAO
     {
         //On sélectionne un service par son id.
         //La requête ne retournant qu'une seule occurrence, on utilise la méthode first de Querybuilder
-        $monService = DB::table('services')->where('id_Service', '=', $id_Service)->first();
+        $monService = DB::table('enregistrement')->where('id_enregistrement', '=', $id_Service)->first();
         $service = $this->creerObjetMetier($monService);
         return $service;
     }
 
     public function getLesImages($id_Service) {
-        $images = DB::table('images_services')->where('fk_Image', '=', $id_Service)->get();
+        $images = DB::table('image')->where('fk_enregistrement', '=', $id_Service)->get();
         $lesImages = array();
         $i = 0;
         foreach ($images as $limage) {
@@ -42,11 +42,11 @@ class ServiceDAO extends DAO
     protected function creerObjetMetier(\stdClass $objet)
     {
         $leService = new Service();
-        $leService->setIdService($objet->id_Service);
-        $leService->setIntituleService($objet->intitule_Service);
-        $leService->setDescriptionService($objet->description_Service);
+        $leService->setIdService($objet->id_enregistrement);
+        $leService->setIntituleService($objet->intitule);
+        $leService->setDescriptionService($objet->description);
         //Il faut maintenant sélectionner les images associées au service
-        $lesImages = $this->getLesImages($objet->id_Service);
+        $lesImages = $this->getLesImages($objet->id_enregistrement);
         //Si le service possède des images
         if($lesImages){
             //On modifie l'attribut images_Service de la classe iService
@@ -59,38 +59,38 @@ class ServiceDAO extends DAO
 
     protected function creerImageMetier(\stdClass $objet) {
         $limage = new Image();
-        $limage -> setIdImage($objet -> id_Image);
-        $limage -> setFKImage($objet -> fk_Image);
-        $limage -> setLienImage($objet -> lien_Image);
+        $limage -> setIdImage($objet -> id_image);
+        $limage -> setFKImage($objet -> fk_enregistrement);
+        $limage -> setLienImage($objet -> lien_image);
         return $limage;
     }
 
     public function creationService(Service $unService, $monImage){
-        DB::table('services')->insert(['intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
+        DB::table('enregistrement')->insert(['intitule'=>$unService->getIntituleService(),'description'=>$unService->getDescriptionService(),'categorie','services']);
         $id = DB::getPDO()->lastInsertId();
         if($monImage != null){
             $monImage->setFKImage($id);
-            DB::table('images_services')->insert(['fk_Image'=>$monImage->getFKImage(),'lien_Image'=>$monImage->getLienImage()]);
+            DB::table('images')->insert(['fk_enregistrement'=>$monImage->getFKImage(),'lien_image'=>$monImage->getLienImage()]);
         }
     }
 
     public function updateService(Service $unService, $monImage){
-        DB::table('services')->where('id_Service',$unService->getIdService())->update(['intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
+        DB::table('enregistrement')->where('id_enregistrement',$unService->getIdService())->update(['intitule'=>$unService->getIntituleService(),'description'=>$unService->getDescriptionService()]);
         if($monImage != null){
             if($unService->getLesImages()!=null) {
-                DB::table('images_services')->where('id_Image', '=', $unService->getLesImages()[0]->getIdImage())->update(['lien_Image' => $monImage->getLienImage()]);
+                DB::table('image')->where('id_image', '=', $unService->getLesImages()[0]->getIdImage())->update(['lien_image' => $monImage->getLienImage()]);
             }else {
-                DB::table('images_services')->insert(['fk_Image' => $unService->getIdService(), 'lien_Image' => $monImage->getLienImage()]);
+                DB::table('image')->insert(['fk_enregistrement' => $unService->getIdService(), 'lien_image' => $monImage->getLienImage()]);
             }
         }else{
             if($unService->getLesImages()!=null) {
-                DB::table('images_services')->where('fk_Image', '=', $unService->getLesImages()[0])->delete();
+                DB::table('image')->where('fk_enregistrement', '=', $unService->getLesImages()[0])->delete();
             }
         }
     }
 
     public function supprImage(Image $monImage) {
-        DB::table('images_services')->where('id_Image','=', $monImage->getIdImage())->delete();
+        DB::table('image')->where('id_image','=', $monImage->getIdImage())->delete();
     }
 
     public function supprService(Service $monService) {
@@ -100,7 +100,7 @@ class ServiceDAO extends DAO
                 $this->supprImage($uneImage);
             }
         }
-        DB::table('services')->where('id_Service', '=', $monService->getIdService())->delete();
+        DB::table('enregistrement')->where('id_enregistrement', '=', $monService->getIdService())->andWhere('categorie', '=', 'services')->delete();
     }
 
 
