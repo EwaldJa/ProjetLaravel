@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<nav class="d-block navbar navbar-expand-lg grey-text static-top" style= "background-color: #eee; color: #fa4040 ">
+<nav class="d-block navbar navbar-expand-lg grey-text static-top" style= "background-color: #eee;">
     <div class="container-fluid">
 
         <a class="navbar-brand" style="width:30%; min-width: 300px;" href="{{url('/home')}}" ><img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Logo manquant"></a>
@@ -65,7 +65,7 @@
 
 @yield('contenu')
 
-<footer class="footer mt-5" style="background-color: #FFFFFF">
+<footer class="footer mt-5" style="background-color: #eee">
     <p class="mb-0">Tel : 0820 205 122</p>
     <p class="mb-0">Copyright © Limpilux 2019 - Tous droits réservés</p>
 </footer>

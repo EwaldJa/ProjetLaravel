@@ -4,7 +4,7 @@ body {
 .footer {
     text-align: center;
 }
-.navbar-nav li a {
+.navbar-nav li a, footer p {
     color:  #bf0000;
 }
 
