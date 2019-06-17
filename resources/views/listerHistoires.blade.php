@@ -26,11 +26,7 @@
                 <div class="row">
 
                     <div class="col-sm-12 mt-3 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="card-text">{{ $histoire->getParagrapheHistoire() }}</p>
-                            </div>
-                        </div>
+                        <p class="card-text">{{ $histoire->getParagrapheHistoire() }}</p>
                     </div>
 
                 </div>

@@ -1,5 +1,5 @@
 body {
-    background-color: #aaaaaa;
+    background-color: #bbb;
 }
 .footer {
     text-align: center;
@@ -15,4 +15,25 @@ body {
 .sansmarge {
     margin-left: 0px;
     margin-right: 0px;
+}
+@font-face
+{
+    font-family:         'Alike-Regular';
+    src:                 url('font/Alike-Regular.ttf');
+}
+@font-face
+{
+    font-family:         'AlikeAngular-Regular';
+    src:                 url('font/AlikeAngular-Regular.ttf');
+}
+.card-body{
+    font-family: 'Alike-Regular';
+}
+.card-body h1{
+    font-family:'AlikeAngular-Regular';
+    color: #bf0000;
+}
+.card-body h5{
+    font-family:'AlikeAngular-Regular';
+    color: #bf0000;
 }
