@@ -10,26 +10,26 @@ class EngagementDAO extends DAO
 
     public function getLesEngagements()
     {
-        $engagements = DB::table('engagements')->get();
+        $Engagements = DB::table('enregistrement')->where('categorie', '=', 'engagements')->get();
         $lesEngagements = array();
-        foreach ($engagements as $leEngagement) {
-            $id_Engagement = $leEngagement->id_Engagement;
-            $lesEngagements[$id_Engagement] = $this->creerObjetMetier($leEngagement);
+        foreach ($Engagements as $leEngagement) {
+            $id_enregistrement = $leEngagement->id_enregistrement;
+            $lesEngagements[$id_enregistrement] = $this->creerObjetMetier($leEngagement);
         }
         return $lesEngagements;
     }
 
-    public function getEngagementById($id_Engagement)
+    public function getEngagementById($id_enregistrement)
     {
-        //On sélectionne un engagement par son id.
+        //On sélectionne un Engagement par son id.
         //La requête ne retournant qu'une seule occurrence, on utilise la méthode first de Querybuilder
-        $monEngagement = DB::table('engagements')->where('id_Engagement', '=', $id_Engagement)->first();
-        $engagement = $this->creerObjetMetier($monEngagement);
-        return $engagement;
+        $monEngagement = DB::table('enregistrement')->where('id_enregistrement', '=', $id_enregistrement)->first();
+        $Engagement = $this->creerObjetMetier($monEngagement);
+        return $Engagement;
     }
 
-    public function getLesImages($id_Engagement) {
-        $images = DB::table('images_engagements')->where('fk_Image', '=', $id_Engagement)->get();
+    public function getLesImages($id_enregistrement) {
+        $images = DB::table('image')->where('fk_enregistrement', '=', $id_enregistrement)->get();
         $lesImages = array();
         $i = 0;
         foreach ($images as $limage) {
@@ -42,12 +42,12 @@ class EngagementDAO extends DAO
     protected function creerObjetMetier(\stdClass $objet)
     {
         $leEngagement = new Engagement();
-        $leEngagement->setIdEngagement($objet->id_Engagement);
-        $leEngagement->setIntituleEngagement($objet->intitule_Engagement);
-        $leEngagement->setDescriptionEngagement($objet->description_Engagement);
-        //Il faut maintenant sélectionner les images associées au engagement
-        $lesImages = $this->getLesImages($objet->id_Engagement);
-        //Si le engagement possède des images
+        $leEngagement->setIdEngagement($objet->id_enregistrement);
+        $leEngagement->setIntituleEngagement($objet->intitule);
+        $leEngagement->setDescriptionEngagement($objet->description);
+        //Il faut maintenant sélectionner les images associées au Engagement
+        $lesImages = $this->getLesImages($objet->id_enregistrement);
+        //Si le Engagement possède des images
         if($lesImages){
             //On modifie l'attribut images_Engagement de la classe iEngagement
             $leEngagement->setLesImages($lesImages);
@@ -59,17 +59,49 @@ class EngagementDAO extends DAO
 
     protected function creerImageMetier(\stdClass $objet) {
         $limage = new Image();
-        $limage -> setIdImage($objet -> id_Image);
-        $limage -> setFKImage($objet -> fk_Image);
-        $limage -> setLienImage($objet -> lien_Image);
+        $limage -> setIdImage($objet -> id_image);
+        $limage -> setFKImage($objet -> fk_enregistrement);
+        $limage -> setLienImage($objet -> lien_image);
         return $limage;
     }
 
-    public function creationConference(Engagement $unEngagement){
-        DB::table('engagements')->insert(['id_Engagement'=>$unEngagement->getIdEngagement(),'intitule_Engagement'=>$unEngagement->getIntituleEngagement(),'description_Engagement'=>$unEngagement->getDescriptionEngagement()]);
+    public function creationEngagement(Engagement $unEngagement, $monImage){
+        DB::table('enregistrement')->insert(['intitule'=>$unEngagement->getIntituleEngagement(),'description'=>$unEngagement->getDescriptionEngagement(),'categorie','engagements']);
+        $id = DB::getPDO()->lastInsertId();
+        if($monImage != null){
+            $monImage->setFKImage($id);
+            DB::table('images')->insert(['fk_enregistrement'=>$monImage->getFKImage(),'lien_image'=>$monImage->getLienImage()]);
+        }
     }
 
+    public function updateEngagement(Engagement $unEngagement, $monImage){
+        DB::table('enregistrement')->where('id_enregistrement',$unEngagement->getIdEngagement())->update(['intitule'=>$unEngagement->getIntituleEngagement(),'description'=>$unEngagement->getDescriptionEngagement()]);
+        if($monImage != null){
+            if($unEngagement->getLesImages()!=null) {
+                DB::table('image')->where('id_image', '=', $unEngagement->getLesImages()[0]->getIdImage())->update(['lien_image' => $monImage->getLienImage()]);
+            }else {
+                DB::table('image')->insert(['fk_enregistrement' => $unEngagement->getIdEngagement(), 'lien_image' => $monImage->getLienImage()]);
+            }
+        }else{
+            if($unEngagement->getLesImages()!=null) {
+                DB::table('image')->where('fk_enregistrement', '=', $unEngagement->getLesImages()[0])->delete();
+            }
+        }
+    }
 
+    public function supprImage(Image $monImage) {
+        DB::table('image')->where('id_image','=', $monImage->getIdImage())->delete();
+    }
+
+    public function supprEngagement(Engagement $monEngagement) {
+        $lesImages = $monEngagement->getLesImages();
+        if ($lesImages != null) {
+            foreach ($lesImages as $uneImage) {
+                $this->supprImage($uneImage);
+            }
+        }
+        DB::table('enregistrement')->where('id_enregistrement', '=', $monEngagement->getIdEngagement())->andWhere('categorie', '=', 'engagements')->delete();
+    }
 
 
 }

@@ -8,28 +8,28 @@ use App\Metier\SecteurActivite;
 class SecteurActiviteDAO extends DAO
 {
 
-    public function getLesSecteurActivite()
+    public function getLesSecteurActivites()
     {
-        $secteurActivite = DB::table('secteurs_activite')->get();
-        $lesSecteurActivite = array();
-        foreach ($secteurActivite as $leSecteurActivite) {
-            $id_SecteurActivite = $leSecteurActivite->id_Secteur;
-            $lesSecteurActivite[$id_SecteurActivite] = $this->creerObjetMetier($leSecteurActivite);
+        $SecteurActivites = DB::table('enregistrement')->where('categorie', '=', 'secteurs')->get();
+        $lesSecteurActivites = array();
+        foreach ($SecteurActivites as $leSecteurActivite) {
+            $id_enregistrement = $leSecteurActivite->id_enregistrement;
+            $lesSecteurActivites[$id_enregistrement] = $this->creerObjetMetier($leSecteurActivite);
         }
-        return $lesSecteurActivite;
+        return $lesSecteurActivites;
     }
 
-    public function getSecteurActiviteById($id_SecteurActivite)
+    public function getSecteurActiviteById($id_enregistrement)
     {
-        //On sélectionne un secteurActivite par son id.
+        //On sélectionne un SecteurActivite par son id.
         //La requête ne retournant qu'une seule occurrence, on utilise la méthode first de Querybuilder
-        $monSecteurActivite = DB::table('secteurs_activite')->where('id_Secteur', '=', $id_SecteurActivite)->first();
-        $secteurActivite = $this->creerObjetMetier($monSecteurActivite);
-        return $secteurActivite;
+        $monSecteurActivite = DB::table('enregistrement')->where('id_enregistrement', '=', $id_enregistrement)->first();
+        $SecteurActivite = $this->creerObjetMetier($monSecteurActivite);
+        return $SecteurActivite;
     }
 
-    public function getLesImages($id_SecteurActivite) {
-        $images = DB::table('images_secteurs_activite')->where('fk_Image', '=', $id_SecteurActivite)->get();
+    public function getLesImages($id_enregistrement) {
+        $images = DB::table('image')->where('fk_enregistrement', '=', $id_enregistrement)->get();
         $lesImages = array();
         $i = 0;
         foreach ($images as $limage) {
@@ -42,12 +42,12 @@ class SecteurActiviteDAO extends DAO
     protected function creerObjetMetier(\stdClass $objet)
     {
         $leSecteurActivite = new SecteurActivite();
-        $leSecteurActivite->setIdSecteurActivite($objet->id_Secteur);
-        $leSecteurActivite->setIntituleSecteurActivite($objet->intitule_Secteur);
-        $leSecteurActivite->setDescriptionSecteurActivite($objet->description_Secteur);
-        //Il faut maintenant sélectionner les images associées au secteurActivite
-        $lesImages = $this->getLesImages($objet->id_Secteur);
-        //Si le secteurActivite possède des images
+        $leSecteurActivite->setIdSecteurActivite($objet->id_enregistrement);
+        $leSecteurActivite->setIntituleSecteurActivite($objet->intitule);
+        $leSecteurActivite->setDescriptionSecteurActivite($objet->description);
+        //Il faut maintenant sélectionner les images associées au SecteurActivite
+        $lesImages = $this->getLesImages($objet->id_enregistrement);
+        //Si le SecteurActivite possède des images
         if($lesImages){
             //On modifie l'attribut images_SecteurActivite de la classe iSecteurActivite
             $leSecteurActivite->setLesImages($lesImages);
@@ -59,17 +59,49 @@ class SecteurActiviteDAO extends DAO
 
     protected function creerImageMetier(\stdClass $objet) {
         $limage = new Image();
-        $limage -> setIdImage($objet -> id_Image);
-        $limage -> setFKImage($objet -> fk_Image);
-        $limage -> setLienImage($objet -> lien_Image);
+        $limage -> setIdImage($objet -> id_image);
+        $limage -> setFKImage($objet -> fk_enregistrement);
+        $limage -> setLienImage($objet -> lien_image);
         return $limage;
     }
 
-    public function creationConference(SecteurActivite $unSecteurActivite){
-        DB::table('secteurs_activite')->insert(['id_Secteur'=>$unSecteurActivite->getIdSecteurActivite(),'intitule_Secteur'=>$unSecteurActivite->getIntituleSecteurActivite(),'description_Secteur'=>$unSecteurActivite->getDescriptionSecteurActivite()]);
+    public function creationSecteurActivite(SecteurActivite $unSecteurActivite, $monImage){
+        DB::table('enregistrement')->insert(['intitule'=>$unSecteurActivite->getIntituleSecteurActivite(),'description'=>$unSecteurActivite->getDescriptionSecteurActivite(),'categorie','secteurs']);
+        $id = DB::getPDO()->lastInsertId();
+        if($monImage != null){
+            $monImage->setFKImage($id);
+            DB::table('images')->insert(['fk_enregistrement'=>$monImage->getFKImage(),'lien_image'=>$monImage->getLienImage()]);
+        }
     }
 
+    public function updateSecteurActivite(SecteurActivite $unSecteurActivite, $monImage){
+        DB::table('enregistrement')->where('id_enregistrement',$unSecteurActivite->getIdSecteurActivite())->update(['intitule'=>$unSecteurActivite->getIntituleSecteurActivite(),'description'=>$unSecteurActivite->getDescriptionSecteurActivite()]);
+        if($monImage != null){
+            if($unSecteurActivite->getLesImages()!=null) {
+                DB::table('image')->where('id_image', '=', $unSecteurActivite->getLesImages()[0]->getIdImage())->update(['lien_image' => $monImage->getLienImage()]);
+            }else {
+                DB::table('image')->insert(['fk_enregistrement' => $unSecteurActivite->getIdSecteurActivite(), 'lien_image' => $monImage->getLienImage()]);
+            }
+        }else{
+            if($unSecteurActivite->getLesImages()!=null) {
+                DB::table('image')->where('fk_enregistrement', '=', $unSecteurActivite->getLesImages()[0])->delete();
+            }
+        }
+    }
 
+    public function supprImage(Image $monImage) {
+        DB::table('image')->where('id_image','=', $monImage->getIdImage())->delete();
+    }
+
+    public function supprSecteurActivite(SecteurActivite $monSecteurActivite) {
+        $lesImages = $monSecteurActivite->getLesImages();
+        if ($lesImages != null) {
+            foreach ($lesImages as $uneImage) {
+                $this->supprImage($uneImage);
+            }
+        }
+        DB::table('enregistrement')->where('id_enregistrement', '=', $monSecteurActivite->getIdSecteurActivite())->andWhere('categorie', '=', 'secteurs')->delete();
+    }
 
 
 }
