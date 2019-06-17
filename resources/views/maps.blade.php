@@ -13,7 +13,7 @@
 @endsection
 
 @section('contenu')
-    <div class="row mt-2 sansmarge">
+    <div class="row mt-2 sansmarge ">
         <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
             <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1JfQyhl3HjNOg01e3hSgraLyhoIZpsYVY" width="100%" style="height: 50vh"></iframe>
         </div>

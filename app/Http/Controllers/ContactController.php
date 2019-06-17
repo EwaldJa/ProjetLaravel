@@ -23,7 +23,23 @@ class ContactController extends Controller
         }
         return view('Contacter');
     }
+    public function envoyerContact(InsertionContactRequest $request){
+        $monContact = new Contact();
+        $monContact->setNomContact($request->input('nom_Contact'));
+        $monContact->setPrenomContact($request->input('prenom_Contact'));
+        $monContact->setEmailContact($request->input('email_Contact'));
+        $monContact->setTelephoneContact($request->input('telephone_Contact'));
+        $monContact->setSocieteContact($request->input('societe_Contact'));
+        $monContact->setCodepostalContact($request->input('codepostal_Contact'));
+        $monContact->setAdresseContact($request->input('adresse_Contact'));
+        $monContact->setObjetContact($request->input('objet_Contact'));
+        $monContact->setMessageContact($request->input('message_Contact'));
 
+
+        $monContactDAO = new ContactDAO();
+        $monContactDAO->creationContact($monContact);
+        return redirect('contact');
+    }
     //Selection d'une conference par son id
     public function getContactById($idConf)
     {
@@ -35,10 +51,6 @@ class ContactController extends Controller
         //lesCommentaires représente la liste des commentaires associés à cette conférence
         return view('listerCommentaires',compact('laConference','lesCommentaires'));
 
-    }
-    public function envoyerContact(InsertionContactRequest $request)
-    {
-        return view('welcome');
     }
 
 

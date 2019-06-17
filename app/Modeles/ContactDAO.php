@@ -42,18 +42,17 @@ class ContactDAO extends DAO
     protected function creerObjetMetier(\stdClass $objet)
     {
         $leContact = new Contact();
-        $leContact->setIdContact($objet->id_Contact);
-        $leContact->setIntituleContact($objet->intitule_Contact);
-        $leContact->setDescriptionContact($objet->description_Contact);
-        //Il faut maintenant sélectionner les images associées au contact
-        $lesImages = $this->getLesImages($objet->id_Contact);
-        //Si le contact possède des images
-        if($lesImages){
-            //On modifie l'attribut images_Contact de la classe iContact
-            $leContact->setLesImages($lesImages);
-        }
-        else
-            $leContact->setLesImages(null);
+
+
+        $leContact->setNomContact($objet->nom_Contact);
+        $leContact->setPrenomContact($objet->prenom_Contact);
+        $leContact->setEmailContact($objet->email_Contact);
+        $leContact->setTelephoneContact($objet->telephone_Contact);
+        $leContact->setSocieteContact($objet->societe_Contact);
+        $leContact->setCodepostalContact($objet->codepostal_Contact);
+        $leContact->setAdresseContact($objet->adresse_Contact);
+        $leContact->setObjetContact($objet->objet_Contact);
+        $leContact->setMessageContact($objet->message_Contact);
         return $leContact;
     }
 
@@ -65,8 +64,19 @@ class ContactDAO extends DAO
         return $limage;
     }
 
-    public function creationConference(Contact $unContact){
-        DB::table('contacts')->insert(['id_Contact'=>$unContact->getIdContact(),'intitule_Contact'=>$unContact->getIntituleContact(),'description_Contact'=>$unContact->getDescriptionContact()]);
+
+    public function creationContact(Contact $unContact){
+        DB::table('contacts')->insert([
+            'nom_Contact'=>$unContact->getNomContact(),
+            'prenom_Contact'=>$unContact->getPrenomContact(),
+            'email_Contact'=>$unContact->getEmailContact(),
+            'telephone_Contact'=>$unContact->getTelephoneContact(),
+            'societe_Contact'=>$unContact->getSocieteContact(),
+            'codepostal_Contact'=>$unContact->getCodepostalContact(),
+            'adresse_Contact'=>$unContact->getAdresseContact(),
+            'objet_Contact'=>$unContact->getObjetContact(),
+            'message_Contact'=>$unContact->getMessageContact()
+        ]);
     }
 
 
