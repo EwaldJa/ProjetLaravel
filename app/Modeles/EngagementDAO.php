@@ -100,7 +100,7 @@ class EngagementDAO extends DAO
                 $this->supprImage($uneImage);
             }
         }
-        DB::table('enregistrement')->where('id_enregistrement', '=', $monEngagement->getIdEngagement())->andWhere('categorie', '=', 'engagements')->delete();
+        DB::table('enregistrement')->where('id_enregistrement', '=', $monEngagement->getIdEngagement())->xhere('categorie', '=', 'engagements')->delete();
     }
 
 

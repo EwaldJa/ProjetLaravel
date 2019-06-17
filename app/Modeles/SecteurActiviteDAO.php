@@ -100,7 +100,7 @@ class SecteurActiviteDAO extends DAO
                 $this->supprImage($uneImage);
             }
         }
-        DB::table('enregistrement')->where('id_enregistrement', '=', $monSecteurActivite->getIdSecteurActivite())->andWhere('categorie', '=', 'secteurs')->delete();
+        DB::table('enregistrement')->where('id_enregistrement', '=', $monSecteurActivite->getIdSecteurActivite())->where('categorie', '=', 'secteurs')->delete();
     }
 
 

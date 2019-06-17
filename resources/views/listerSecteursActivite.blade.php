@@ -17,7 +17,7 @@
     <div class="row mt-2 sansmarge">
         <div class="d-inline-block col-md-10 offset-md-1 col-lg-8 offset-lg-2 grisclair">
             <div class="d-none">{{$i = 0}}</div>
-            @foreach ($lesSecteursActivite as $secteurActivite)
+            @foreach ($lesSecteurActivites as $secteurActivite)
                 <div class="row">
                     @if ($secteurActivite->getLesImages() != null)
                         <div class="d-none">{{$i = $i + 1}}</div>

@@ -100,7 +100,7 @@ class ServiceDAO extends DAO
                 $this->supprImage($uneImage);
             }
         }
-        DB::table('enregistrement')->where('id_enregistrement', '=', $monService->getIdService())->andWhere('categorie', '=', 'services')->delete();
+        DB::table('enregistrement')->where('id_enregistrement', '=', $monService->getIdService())->where('categorie', '=', 'services')->delete();
     }
 
 

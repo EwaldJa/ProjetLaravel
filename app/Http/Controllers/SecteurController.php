@@ -14,7 +14,7 @@ class SecteurController extends Controller
     public function getSecteurActivites(){
         $monSecteurActiviteDAO = new SecteurActiviteDAO();
         $lesSecteurActivites = $monSecteurActiviteDAO->getLesSecteurActivites();
-        return view('listerSecteurActivites',compact('lesSecteurActivites'));
+        return view('listerSecteursActivite',compact('lesSecteurActivites'));
     }
 
     //Selection d'un SecteurActivite par son id
