@@ -2,12 +2,10 @@ body {
     background-color: #aaaaaa;
 }
 .footer {
-    border-top: 10px solid #ccc;
-    padding-top: 10px;
     text-align: center;
 }
 .navbar-nav li a {
-    color:  #bf0000;
+    color:  #F7F7F7;
 }
 
 .grisclair {
