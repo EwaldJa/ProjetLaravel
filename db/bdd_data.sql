@@ -9,8 +9,7 @@ INSERT INTO `histoire` (`id_Histoire`, `paragraphe_Histoire`) VALUES
 (4, 'La volonté et le goût d’entreprendre sont présents depuis notre création. Des étapes de transformation ont permis à LIMPILUX de s’invertir dans de nouveaux périmètres d’activité afin d’élargir son champ d’action.'),
 (5, 'Ce dynamisme est porté par une équipe de collaborateurs de proximité, réactifs, motivés et ponctuels.'),
 (6, 'Ils sont prêts à vous épauler en trouvant des solutions dans vos problématiques de nettoyage, à intervenir dans des délais très courts.'),
-(7, 'Plus de 200 clients sont servis chaque jour par les équipes de LIMPILUX présentes sur Paris et sa région.'),
-(8, 'Plus de 200 clients sont servis chaque jour par les équipes de LIMPILUX présentes sur Paris et sa région.');
+(7, 'Plus de 200 clients sont servis chaque jour par les équipes de LIMPILUX présentes sur Paris et sa région.');
 
 
 --

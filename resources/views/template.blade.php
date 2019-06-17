@@ -89,6 +89,8 @@
 
 <footer class="footer mt-5" style="background-color: #eee">
     <p class="mb-0">Tel : 0820 205 122</p>
+    <p class="mb-0">14 avenue de l’Opéra 75001 PARIS</p>
+    <p class="mb-0">1 Place Paul Verlaine 92100 BOULOGNE BILLANCOURT</p>
     <p class="mb-0">Copyright © Limpilux 2019 - Tous droits réservés</p>
 </footer>
 {!! Html::script('lib/jquery/jquery-3.3.1.slim.min.js') !!}

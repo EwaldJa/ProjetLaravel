@@ -61,10 +61,15 @@
             .m-b-md {
                 margin-bottom: 40px;
             }
+
+            .foot p {
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref" style="height:90%">
+        <div class="flex-center position-ref" style="height:80%">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -98,7 +103,7 @@
                     <a href="{{ url('/contact') }}">Nous contacter</a>
                 <!--    <a href="{{ url('/home') }}">Recrutement</a> -->
                 </div>
-                <div class="links m-b-md">
+                <div class="links m-b-md foot">
                     <a href="{{ url('/implantation') }}">
                         Implantation
                         <img src="Images/ImageCoordonnee/logoLoc.png" class="img-fluid rounded" alt="Logo Maps manquant" style="max-height: 50px">
@@ -107,10 +112,12 @@
             </div>
 
         </div>
-        <div class="flex-center" style="height:10%">
-            <div>
+        <div class="flex-center " style="height:20%">
+            <div class="foot">
                 <p class="flex-center">Tel : 0820 205 122</p>
-                <p>Copyright © Limpilux 2019 - Tous droits réservés</p>
+                <p class="flex-center">14 avenue de l’Opéra 75001 PARIS</p>
+                <p class="flex-center">1 Place Paul Verlaine 92100 BOULOGNE BILLANCOURT</p>
+                <p class="flex-center">Copyright © Limpilux 2019 - Tous droits réservés</p>
             </div>
         </div>
     </body>
