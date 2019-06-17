@@ -23,6 +23,7 @@ Route::get('accueil',function () {
 Route::get('prestations','ServiceController@getServices');
 Route::post('ajoutPrestation','ServiceController@creationService');
 Route::post('modifPrestation','ServiceController@updateService');
+Route::post('supprImagePresta','ServiceController@supprImage');
 
 Route::get('secteurs','SecteurController@getSecteurs');
 

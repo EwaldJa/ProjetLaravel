@@ -66,7 +66,8 @@ class ServiceDAO extends DAO
     }
 
     public function creationService(Service $unService, $monImage){
-        $id = DB::table('services')->insert(['intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
+        DB::table('services')->insert(['intitule_Service'=>$unService->getIntituleService(),'description_Service'=>$unService->getDescriptionService()]);
+        $id = DB::getPDO()->lastInsertId();
         if($monImage != null){
             $monImage->setFKImage($id);
             DB::table('images_services')->insert(['fk_Image'=>$monImage->getFKImage(),'lien_Image'=>$monImage->getLienImage()]);
@@ -86,6 +87,10 @@ class ServiceDAO extends DAO
                 DB::table('images_services')->where('fk_Image', $unService->getLesImages()[0])->delete();
             }
         }
+    }
+
+    public function supprImage(Image $monImage) {
+        DB::table('images_services')->where('id_Image','=', $monImage->getIdImage())->delete();
     }
 
 
