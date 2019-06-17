@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\InsertionConfRequest;
+use App\Http\Requests\InsertionServiceRequest;
 use App\Metier\Image;
 use App\Metier\Service;
 
@@ -28,18 +28,23 @@ class ServiceController extends Controller
         //$lesImages représente la liste des images associées à ce service
         return view('detailsService',compact('leService','lesImages'));
     }
-/*
-    public function ajoutConference(){
-        return view('formAjoutConference');
+
+    public function updateService(){
+        return view('listerServices');
     }
 
-    public function postAjoutConference(InsertionConfRequest $request){
-        $maConference = new Service();
-        $maConference->setIntituleConf($request->input('intituleConf'));
-        $maConference->setDescriptionConf($request->input('descriptionConf'));
-        $maConferenceDAO = new ServiceDAO();
-        $maConferenceDAO->creationConference($maConference);
-        return view('insertionOK');
+    public function creationService(InsertionServiceRequest $request){
+        $monService = new Service();
+        $monService->setIdService(Crypt::decrypt($request->input('intitule_Service')));
+        $monService->setIntituleService($request->input('intitule_Service'));
+        $monService->setDescriptionService($request->input('description_Service'));
+        $monImage = ($request->input('image_Service'));
+        if ($monImage == "") {
+            $monImage = null;
+        }
+        $monServiceDAO = new ServiceDAO();
+        $monServiceDAO->creationService($monService);
+        return view('listerServices');
     }
-*/
+
 }

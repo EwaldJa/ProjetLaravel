@@ -40,6 +40,9 @@
                                                         {!! Form::text('image_Service', ($service->getLesImages())[0]->getLienImage(), ['class' => 'form-control', 'placeholder' => 'Placer ici le lien de l\'image']) !!}
                                                         {!! $errors->first('image_Service', '<small class="help-block">:message</small>') !!}
                                                     </div>
+                                                    <div class="form-group">
+                                                        {{ Form::hidden('id_Service', Crypt::encrypt($service->getIdService())) }}
+                                                    </div>
                                                 {!! Form::submit('Valider les modifications', ['class' => 'btn btn-info pull-right']) !!}
                                                 {!! Form::close() !!}
                                             @else
@@ -73,6 +76,9 @@
                                                     {!! Form::text('image_Service', ($service->getLesImages())[0]->getLienImage(), ['class' => 'form-control', 'placeholder' => 'Placer ici le lien de l\'image']) !!}
                                                     {!! $errors->first('image_Service', '<small class="help-block">:message</small>') !!}
                                                 </div>
+                                                <div class="form-group">
+                                                    {{ Form::hidden('id_Service', Crypt::encrypt($service->getIdService())) }}
+                                                </div>
                                                 {!! Form::submit('Valider les modifications', ['class' => 'btn btn-info pull-right']) !!}
                                                 {!! Form::close() !!}
                                             @else
@@ -101,6 +107,9 @@
                                                 {!! Form::text('image_Service', null, ['class' => 'form-control', 'placeholder' => 'Placer ici le lien de l\'image']) !!}
                                                 {!! $errors->first('image_Service', '<small class="help-block">:message</small>') !!}
                                             </div>
+                                            <div class="form-group">
+                                                {{ Form::hidden('id_Service', Crypt::encrypt($service->getIdService())) }}
+                                            </div>
                                             {!! Form::submit('Valider les modifications', ['class' => 'btn btn-info pull-right']) !!}
                                             {!! Form::close() !!}
                                         @else
@@ -113,6 +122,31 @@
                         @endif
                     </div>
                 @endforeach
+                @auth
+                    <div class="row">
+                        <div class="col-sm-12 mt-3 mb-3">
+                            <div class="card" style="height: auto">
+                                <div class="card-body">
+                                    {!! Form::open(['url' => 'ajoutPrestation']) !!}
+                                        <div class="form-group {!! $errors->has('intitule_Service') ? 'has-error' : '' !!}">
+                                            {!! Form::text('intitule_Service', null, ['class' => 'form-control', 'placeholder' => 'Intitulé de la prestation']) !!}
+                                            {!! $errors->first('intitule_Service', '<small class="help-block">:message</small>') !!}
+                                        </div>
+                                        <div class="form-group {!! $errors->has('description_Service') ? 'has-error' : '' !!}">
+                                            {!! Form::textarea ('description_Service', null, ['class' => 'form-control', 'placeholder' => 'Description de la prestation']) !!}
+                                            {!! $errors->first('description_Service', '<small class="help-block">:message</small>') !!}
+                                        </div>
+                                        <div class="form-group {!! $errors->has('image_Service') ? 'has-error' : '' !!}">
+                                            {!! Form::text('image_Service', null, ['class' => 'form-control', 'placeholder' => 'Placer ici le lien de l\'image']) !!}
+                                            {!! $errors->first('image_Service', '<small class="help-block">:message</small>') !!}
+                                        </div>
+                                        {!! Form::submit('Ajouter la prestation', ['class' => 'btn btn-info pull-right']) !!}
+                                    {!! Form::close() !!}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endauth
             </div>
         </div>
 @endsection
