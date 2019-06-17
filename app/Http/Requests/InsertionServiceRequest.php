@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InsertionConfRequest extends FormRequest
+class InsertionServiceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -29,8 +29,8 @@ class InsertionConfRequest extends FormRequest
     {
         return [
             //
-            'intituleConf' => 'required|min:5|max:45|alpha',
-            'descriptionConf' => 'required|max:600'
+            'intitule_Service' => 'required|min:5|max:100',
+            'description_Service' => 'required|max:2000',
         ];
     }
 }

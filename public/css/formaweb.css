@@ -29,10 +29,9 @@ body {
 @font-face
 {
     font-family:         'stratford';
-    src:                 url('font/stratford_serial-regular-webfont.woff');
+    src:                 url('font/SoftMaker-StratfordSerial.ttf');
 }
 .card-body{
-
     font-family: 'stratford';
 }
 h1{

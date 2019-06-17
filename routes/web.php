@@ -21,6 +21,8 @@ Route::get('accueil',function () {
     return view('welcome');
 });
 Route::get('prestations','ServiceController@getServices');
+Route::post('ajoutPrestation','ServiceController@creationService');
+Route::get('modifPrestation','ServiceController@updateService');
 
 Route::get('secteurs','SecteurController@getSecteurs');
 
@@ -35,4 +37,4 @@ Route::get('home', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register'=>false]);
