@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\InsertionServiceRequest;
 use App\Metier\Image;
 use App\Metier\Service;
+use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Input;
 
 use App\Modeles\ServiceDAO;
 //use Illuminate\Http\Request;
@@ -29,22 +31,35 @@ class ServiceController extends Controller
         return view('detailsService',compact('leService','lesImages'));
     }
 
-    public function updateService(){
-        return view('listerServices');
+    public function updateService(InsertionServiceRequest $request){
+        $monService = new Service();
+        $monService->setIdService($request->input('id_Service'));
+        $monService->setIntituleService($request->input('intitule_Service'.$monService->getIdService()));
+        $monService->setDescriptionService($request->input('description_Service'.$monService->getIdService()));
+        $monImage = new Image();
+        $monImage->setLienImage($request->input('image_Service'.$monService->getIdService()));
+        if ($monImage->getLienImage() == "") {
+            $monImage = null;
+        }
+        $monServiceDAO = new ServiceDAO();
+        $monServiceDAO->updateService($monService, $monImage);
+        $lesServices = $monServiceDAO->getLesServices();
+        return redirect('prestations');
     }
 
     public function creationService(InsertionServiceRequest $request){
         $monService = new Service();
-        $monService->setIdService(Crypt::decrypt($request->input('intitule_Service')));
         $monService->setIntituleService($request->input('intitule_Service'));
         $monService->setDescriptionService($request->input('description_Service'));
-        $monImage = ($request->input('image_Service'));
-        if ($monImage == "") {
+        $monImage = new Image();
+        $monImage->setLienImage($request->input('image_Service'));
+        if ($monImage->getLienImage() == "") {
             $monImage = null;
         }
         $monServiceDAO = new ServiceDAO();
-        $monServiceDAO->creationService($monService);
-        return view('listerServices');
+        $monServiceDAO->creationService($monService, $monImage);
+        $lesServices = $monServiceDAO->getLesServices();
+        return redirect('prestations');
     }
 
 }

@@ -35,7 +35,7 @@ class Image
         return $this->lien_Image;
     }
 
-    public function setLienService($lien_Image)
+    public function setLienImage($lien_Image)
     {
         $this->lien_Image = $lien_Image;
     }

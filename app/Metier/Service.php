@@ -18,7 +18,7 @@ class Service
 
     public function setIdService($id_Service)
     {
-        $this->$id_Service = $id_Service;
+        $this->id_Service = $id_Service;
     }
 
     public function getIntituleService()

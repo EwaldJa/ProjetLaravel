@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Input;
 
 class InsertionServiceRequest extends FormRequest
 {
@@ -27,10 +28,11 @@ class InsertionServiceRequest extends FormRequest
      */
     public function rules()
     {
+        $id = Input::get('id_Service');
         return [
             //
-            'intitule_Service' => 'required|min:5|max:100',
-            'description_Service' => 'required|max:2000',
+            'intitule_Service'.$id => 'required|min:5|max:100',
+            'description_Service'.$id => 'required|max:2000',
         ];
     }
 }
