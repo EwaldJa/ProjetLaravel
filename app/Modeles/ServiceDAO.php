@@ -90,7 +90,7 @@ class ServiceDAO extends DAO
     }
 
     public function supprImage(Image $monImage) {
-        DB::table('images_services')->where('id_Image',$monImage->getIdImage())->delete();
+        DB::table('images_services')->where('id_Image','=', $monImage->getIdImage())->delete();
     }
 
 

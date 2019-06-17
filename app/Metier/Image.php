@@ -17,7 +17,7 @@ class Image
 
     public function setIdImage($id_Image)
     {
-        $this->$id_Image = $id_Image;
+        $this->id_Image = $id_Image;
     }
 
     public function getFKImage()
