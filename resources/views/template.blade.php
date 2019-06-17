@@ -18,12 +18,30 @@
 
         <div class="collapse navbar-collapse" id="LimpiluxNavbar">
             <ul class="navbar-nav ml-auto">
+                @auth
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+                            Bonjour, {{ Auth::user()->name }}
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
 
-                <li class="nav-item active">
-                    <a class="nav-link red-text" href="{{url('/accueil')}}">Accueil
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @else
+                    <li class="nav-item active">
+                        <a class="nav-link red-text" href="{{url('/accueil')}}">Accueil
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                @endauth
                 <li class="nav-item active">
                     <a class="nav-link" href="{{url('/prestations')}}">Prestations
                         <span class="sr-only">(current)</span>
