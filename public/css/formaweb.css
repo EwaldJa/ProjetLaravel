@@ -1,5 +1,5 @@
 body {
-    background-color: #aaaaaa;
+    background-color: #bbb;
 }
 .footer {
     text-align: center;
@@ -15,4 +15,14 @@ body {
 .sansmarge {
     margin-left: 0px;
     margin-right: 0px;
+}
+
+.card-body{
+    font-family: "Comic Sans MS";
+}
+.card-body h1{
+    color: #bf0000;
+}
+.card-body h5{
+    color: #bf0000;
 }
