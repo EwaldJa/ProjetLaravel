@@ -15,7 +15,7 @@ class HistoireController extends Controller
     public function getHistoires(){
         $histoire = new HistoireDAO();
         $lesHistoires = $histoire->getLesHistoires();
-        return view('listerConferences',compact('lesHistoires'));
+        return view('listerHistoires',compact('lesHistoires'));
     }
 
     //Selection d'une conference par son id

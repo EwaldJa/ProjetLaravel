@@ -6,48 +6,39 @@ namespace App\Metier;
 
 class Histoire
 {
-    private $id_Service;
-    private $intitule_Service;
-    private $description_Service;
-    private $images_Service=array();
+    private $id_Histoire;
+    private $paragraphe_Histoire;
 
-    public function getIdService()
+    /**
+     * @return mixed
+     */
+    public function getIdHistoire()
     {
-        return $this->id_Service;
+        return $this->id_Histoire;
     }
 
-    public function setIdService($id_Service)
+    /**
+     * @param mixed $id_Histoire
+     */
+    public function setIdHistoire($id_Histoire): void
     {
-        $this->$id_Service = $id_Service;
+        $this->id_Histoire = $id_Histoire;
     }
 
-    public function getIntituleService()
+    /**
+     * @return mixed
+     */
+    public function getParagrapheHistoire()
     {
-        return $this->intitule_Service;
+        return $this->paragraphe_Histoire;
     }
 
-    public function setIntituleService($intitule_Service)
+    /**
+     * @param mixed $paragraphe_Histoire
+     */
+    public function setParagrapheHistoire($paragraphe_Histoire): void
     {
-        $this->intitule_Service = $intitule_Service;
+        $this->paragraphe_Histoire = $paragraphe_Histoire;
     }
 
-    public function getDescriptionService()
-    {
-        return $this->description_Service;
-    }
-
-    public function setDescriptionService($description_Service)
-    {
-        $this->description_Service = $description_Service;
-    }
-
-    public function getLesImages()
-    {
-        return $this->images_Service;
-    }
-
-    public function setLesImages($images_Service)
-    {
-        $this->images_Service=$images_Service;
-    }
 }
