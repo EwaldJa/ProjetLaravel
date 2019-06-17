@@ -93,8 +93,10 @@
 
         </div>
         <div class="flex-center" style="height:20%">
-            <p>Tel : 0820 205 122</p>
-            <p>Copyright © Limpilux 2019 - Tous droits réservés</p>
+            <div>
+                <p class="flex-center">Tel : 0820 205 122</p>
+                <p>Copyright © Limpilux 2019 - Tous droits réservés</p>
+            </div>
         </div>
     </body>
 </html>
