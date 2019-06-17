@@ -7,7 +7,11 @@
 @section('titreItem')
     <div class="row mt-5 sansmarge">
         <div class="d-inline-block col-md-10 offset-md-1 col-lg-8 offset-lg-2 grisclair">
-            <h1 class=" mt-3 mb-3">Les messages</h1>
+            @auth
+                <h1 class=" mt-3 mb-3">Les messages</h1>
+            @else
+                <h1 class=" mt-3 mb-3">Nous contacter</h1>
+            @endauth
         </div>
     </div>
 @endsection
@@ -55,7 +59,7 @@
                 {!! $errors->first('objet_Contact', '<small class="help-block">:message</small>') !!}
             </div>
             <div class="form-group {!! $errors->has('message_Contact') ? 'has-error' : '' !!}">
-                {!! Form::text('message_Contact', null, ['class' => 'form-control', 'placeholder' => 'Message']) !!}
+                {!! Form::textarea('message_Contact', null, ['class' => 'form-control', 'placeholder' => 'Message']) !!}
                 {!! $errors->first('message_Contact', '<small class="help-block">:message</small>') !!}
             </div>
 

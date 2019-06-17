@@ -43,9 +43,10 @@ Route::get('secteurs','SecteurController@getSecteurs');
 Route::get('histoire','HistoireController@getHistoires');
 
 Route::get('contact','ContactController@getContact');
+Route::post('envoyerContact','ContactController@envoyerContact');
+Route::post('VoirContact','ContactController@getContactById');
 
 Route::get('engagements','engagementController@getEngagements');
-Route::post('envoyerContact','ContactController@envoyerContact');
 
 
 
