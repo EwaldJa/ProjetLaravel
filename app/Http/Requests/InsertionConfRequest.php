@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+use Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -13,7 +14,10 @@ class InsertionConfRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        if (Auth::user() != null) {
+            return true;
+        }
+        return false;
     }
 
     /**
