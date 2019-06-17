@@ -20,6 +20,19 @@ Route::get('acceuil',function () {
 Route::get('accueil',function () {
     return view('welcome');
 });
+Route::get('home', function () {
+    return view('welcome');
+});
+
+
+Route::get('implantation', function () {
+    return view('maps');
+});
+Route::get('maps', function () {
+    return view('maps');
+});
+
+
 Route::get('prestations','ServiceController@getServices');
 Route::post('ajoutPrestation','ServiceController@creationService');
 Route::post('modifPrestation','ServiceController@modifService');
@@ -35,8 +48,5 @@ Route::get('engagements','engagementController@getEngagements');
 Route::post('envoyerContact','ContactController@envoyerContact');
 
 
-Route::get('home', function () {
-    return view('welcome');
-});
 
 Auth::routes(['register'=>false]);
