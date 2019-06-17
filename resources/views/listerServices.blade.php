@@ -54,10 +54,26 @@
                                 </div>
                                 <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-4 mt-3 mb-3">
                                     <img src="{{ ($service->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image prestation manquante">
+                                    @auth
+                                        {!! Form::open(['url' => 'supprImagePresta']) !!}
+                                        <div class="form-group">
+                                            {{ Form::hidden('id_Image', $service->getLesImages()[0]->getIdImage()) }}
+                                        </div>
+                                        {!! Form::submit('Supprimer l\'image', ['class' => 'btn btn-danger pull-right']) !!}
+                                        {!! Form::close() !!}
+                                    @endauth
                                 </div>
                             @else
                                 <div class="d-none d-none-sm d-md-inline-block col-md-3 col-lg-4 mt-3 mb-3">
                                     <img src="{{ ($service->getLesImages())[0]->getLienImage() }}" class="img-fluid rounded" alt="Image prestation manquante">
+                                    @auth
+                                    {!! Form::open(['url' => 'supprImagePresta']) !!}
+                                    <div class="form-group">
+                                        {{ Form::hidden('id_Image', $service->getLesImages()[0]->getIdImage()) }}
+                                    </div>
+                                    {!! Form::submit('Supprimer l\'image', ['class' => 'btn btn-danger pull-right']) !!}
+                                    {!! Form::close() !!}
+                                    @endauth
                                 </div>
                                 <div class="col-sm-12 col-md-9 col-lg-8 mt-3 mb-3">
                                     <div class="card">

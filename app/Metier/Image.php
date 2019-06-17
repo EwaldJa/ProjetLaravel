@@ -22,7 +22,7 @@ class Image
 
     public function getFKImage()
     {
-        return $this->intitule_Image;
+        return $this->fk_Image;
     }
 
     public function setFKImage($fk_Image)
