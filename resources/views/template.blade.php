@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<nav class="d-block navbar navbar-expand-lg grey-text static-top mr-2" style= "background-color: #d1cece; color: #fa4040 ">
+<nav class="d-block navbar navbar-expand-lg grey-text static-top" style= "background-color: #d1cece; color: #fa4040 ">
     <div class="container-fluid">
 
         <a class="navbar-brand" style="width:30%; min-width: 300px;" href="{{url('/home')}}" ><img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Logo manquant"></a>
@@ -34,10 +34,10 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Qui sommes nous ?
                     </a>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop" style= "background-color: #d1cece; color: #fa4040 ">
                         <a class="dropdown-item" href="{{url('/histoire')}}">Notre histoire</a>
                         <a class="dropdown-item" href="{{url('/engagements')}}">Nos engagements</a>
                     </div>
