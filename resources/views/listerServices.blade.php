@@ -27,7 +27,21 @@
                                     <div class="card" style="height: auto">
                                         <div class="card-body">
                                             @auth
-
+                                                {!! Form::open(['url' => 'modifPrestation']) !!}
+                                                    <div class="form-group {!! $errors->has('intitule_Service') ? 'has-error' : '' !!}">
+                                                        {!! Form::text('intitule_Service', $service->getIntituleService(), ['class' => 'form-control', 'placeholder' => 'Intitulé de la prestation']) !!}
+                                                        {!! $errors->first('intitule_Service', '<small class="help-block">:message</small>') !!}
+                                                    </div>
+                                                    <div class="form-group {!! $errors->has('description_Service') ? 'has-error' : '' !!}">
+                                                        {!! Form::textarea ('description_Service', $service->getDescriptionService(), ['class' => 'form-control', 'placeholder' => 'Description de la prestation']) !!}
+                                                        {!! $errors->first('description_Service', '<small class="help-block">:message</small>') !!}
+                                                    </div>
+                                                    <div class="form-group {!! $errors->has('image_Service') ? 'has-error' : '' !!}">
+                                                        {!! Form::text('image_Service', ($service->getLesImages())[0]->getLienImage(), ['class' => 'form-control', 'placeholder' => 'Placer ici le lien de l\'image']) !!}
+                                                        {!! $errors->first('image_Service', '<small class="help-block">:message</small>') !!}
+                                                    </div>
+                                                {!! Form::submit('Valider les modifications', ['class' => 'btn btn-info pull-right']) !!}
+                                                {!! Form::close() !!}
                                             @else
                                                 <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
                                                 <p class="card-text">{{ $service->getDescriptionService() }}</p>
@@ -45,8 +59,26 @@
                                 <div class="col-sm-12 col-md-9 col-lg-8 mt-3 mb-3">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
-                                            <p class="card-text">{{ $service->getDescriptionService() }}</p>
+                                            @auth
+                                                {!! Form::open(['url' => 'modifPrestation']) !!}
+                                                <div class="form-group {!! $errors->has('intitule_Service') ? 'has-error' : '' !!}">
+                                                    {!! Form::text('intitule_Service', $service->getIntituleService(), ['class' => 'form-control', 'placeholder' => 'Intitulé de la prestation']) !!}
+                                                    {!! $errors->first('intitule_Service', '<small class="help-block">:message</small>') !!}
+                                                </div>
+                                                <div class="form-group {!! $errors->has('description_Service') ? 'has-error' : '' !!}">
+                                                    {!! Form::textarea ('description_Service', $service->getDescriptionService(), ['class' => 'form-control', 'placeholder' => 'Description de la prestation']) !!}
+                                                    {!! $errors->first('description_Service', '<small class="help-block">:message</small>') !!}
+                                                </div>
+                                                <div class="form-group {!! $errors->has('image_Service') ? 'has-error' : '' !!}">
+                                                    {!! Form::text('image_Service', ($service->getLesImages())[0]->getLienImage(), ['class' => 'form-control', 'placeholder' => 'Placer ici le lien de l\'image']) !!}
+                                                    {!! $errors->first('image_Service', '<small class="help-block">:message</small>') !!}
+                                                </div>
+                                                {!! Form::submit('Valider les modifications', ['class' => 'btn btn-info pull-right']) !!}
+                                                {!! Form::close() !!}
+                                            @else
+                                                <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
+                                                <p class="card-text">{{ $service->getDescriptionService() }}</p>
+                                            @endauth
                                         </div>
                                     </div>
                                 </div>
@@ -55,8 +87,26 @@
                             <div class="col-sm-12 mt-3 mb-3">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
-                                        <p class="card-text">{{ $service->getDescriptionService() }}</p>
+                                        @auth
+                                            {!! Form::open(['url' => 'modifPrestation']) !!}
+                                            <div class="form-group {!! $errors->has('intitule_Service') ? 'has-error' : '' !!}">
+                                                {!! Form::text('intitule_Service', $service->getIntituleService(), ['class' => 'form-control', 'placeholder' => 'Intitulé de la prestation']) !!}
+                                                {!! $errors->first('intitule_Service', '<small class="help-block">:message</small>') !!}
+                                            </div>
+                                            <div class="form-group {!! $errors->has('description_Service') ? 'has-error' : '' !!}">
+                                                {!! Form::textarea ('description_Service', $service->getDescriptionService(), ['class' => 'form-control', 'placeholder' => 'Description de la prestation']) !!}
+                                                {!! $errors->first('description_Service', '<small class="help-block">:message</small>') !!}
+                                            </div>
+                                            <div class="form-group {!! $errors->has('image_Service') ? 'has-error' : '' !!}">
+                                                {!! Form::text('image_Service', null, ['class' => 'form-control', 'placeholder' => 'Placer ici le lien de l\'image']) !!}
+                                                {!! $errors->first('image_Service', '<small class="help-block">:message</small>') !!}
+                                            </div>
+                                            {!! Form::submit('Valider les modifications', ['class' => 'btn btn-info pull-right']) !!}
+                                            {!! Form::close() !!}
+                                        @else
+                                                <h5 class="card-title">{{ $service->getIntituleService() }}</h5>
+                                                <p class="card-text">{{ $service->getDescriptionService() }}</p>
+                                        @endauth
                                     </div>
                                 </div>
                             </div>
