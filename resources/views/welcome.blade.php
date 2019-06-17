@@ -96,7 +96,7 @@
                     <a href="{{ url('/histoire') }}">Histoire</a>
                     <a href="{{ url('/engagements') }}">Engagements</a>
                     <a href="{{ url('/contact') }}">Nous contacter</a>
-                    <a href="{{ url('/home') }}">Recrutement</a>
+                <!--    <a href="{{ url('/home') }}">Recrutement</a> -->
                 </div>
                 <div class="links m-b-md">
                     <a href="{{ url('/implantation') }}">
