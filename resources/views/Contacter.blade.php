@@ -18,7 +18,7 @@
 
 @section('contenu')
     <div class="row mt-2 sansmarge">
-        <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 grisclair">
             {!! Form::open(['url' => 'envoyerContact']) !!}
             <div class="form-group {!! $errors->has('nom_Contact') ? 'has-error' : '' !!}">
                 {!! Form::text('nom_Contact', null, ['class' => 'form-control', 'placeholder' => 'Nom']) !!}

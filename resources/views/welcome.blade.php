@@ -66,12 +66,17 @@
                 margin-top: 0px;
                 margin-bottom: 0px;
             }
+            @media only screen and (max-width: 600px) {
+                .login{
+                    margin-bottom: 50px;
+                }
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref" style="height:80%">
             @if (Route::has('login'))
-                <div class="top-right links">
+                <div class="top-right links login">
                     @auth
                         <a href="{{ route('logout') }}"
                            onclick="event.preventDefault();
@@ -88,7 +93,7 @@
                 </div>
             @endif
 
-            <div class="content">
+            <div class="content" style="margin-top: 50px">
                 <div class="title ">
                     <img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Logo entreprise manquant" width="90%">
                 </div>
