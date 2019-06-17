@@ -70,7 +70,7 @@ class EngagementDAO extends DAO
         $id = DB::getPDO()->lastInsertId();
         if($monImage != null){
             $monImage->setFKImage($id);
-            DB::table('images')->insert(['fk_enregistrement'=>$monImage->getFKImage(),'lien_image'=>$monImage->getLienImage()]);
+            DB::table('image')->insert(['fk_enregistrement'=>$monImage->getFKImage(),'lien_image'=>$monImage->getLienImage()]);
         }
     }
 
