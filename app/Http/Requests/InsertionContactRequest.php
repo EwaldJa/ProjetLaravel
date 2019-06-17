@@ -29,7 +29,7 @@ class InsertionContactRequest extends FormRequest
             'nom_Contact'=>'required|min:3|max:30',
             'prenom_Contact'=>'required|min:3|max:30',
             'email_Contact'=>'required|min:10|max:100',
-            'telephone_Contact'=>'required|min:10|max:50|number',
+            'telephone_Contact'=>'required|min:10|max:50',
             'societe_Contact'=>'required|min:3|max:100',
             'codepostal_Contact'=>'required|min:3|max:10',
             'adresse_Contact'=>'required|max:200',

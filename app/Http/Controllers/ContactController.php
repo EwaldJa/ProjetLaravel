@@ -36,7 +36,7 @@ class ContactController extends Controller
         return view('listerCommentaires',compact('laConference','lesCommentaires'));
 
     }
-    public function envoyerContact(InsertionContactRequestRequest $request)
+    public function envoyerContact(InsertionContactRequest $request)
     {
         return view('welcome');
     }
