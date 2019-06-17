@@ -8,7 +8,7 @@
 
     <div class="row mt-5 sansmarge">
         <div class="d-inline-block col-md-10 offset-md-1 col-lg-8 offset-lg-2 grisclair">
-            <h1 class=" mt-3 mb-3">Nos prestations</h1>
+            <h1 class=" mt-3 mb-3">Nos engagements</h1>
         </div>
     </div>
 
