@@ -51,15 +51,16 @@
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Qui sommes nous ?
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbardrop" style= "background-color: #d1cece; color: #fa4040 ">
-                        <a class="dropdown-item" href="{{url('/histoire')}}">Notre histoire</a>
-                        <a class="dropdown-item" href="{{url('/engagements')}}">Nos engagements</a>
-                    </div>
-                </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{url('/histoire')}}">Notre histoire
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{url('/engagements')}}">Nos engagements
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{url('/contact')}}">
                         @auth Messages

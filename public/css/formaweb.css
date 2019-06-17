@@ -1,5 +1,5 @@
 body {
-    background-color: #bebebe;
+    background-image: url("img_fond.jpg");
 }
 .footer {
     text-align: center;
@@ -9,7 +9,7 @@ body {
 }
 
 .grisclair {
-    background-color: #EEEEEE;
+    background-color: #CCC;
 }
 
 .sansmarge {
