@@ -64,7 +64,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref" style="height:80%">
+        <div class="flex-center position-ref" style="height:90%">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -76,11 +76,13 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    <img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Image prestation manquante" width="70%">
+                <div class="title ">
+                    <img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Image prestation manquante" width="90%">
                 </div>
-
-                <div class="links">
+                <div class="links mt-5 m-b-md">
+                        Nettoyage et entretien de locaux à Paris
+                </div>
+                <div class="links m-b-md">
                     <a href="{{ url('/prestations') }}">Prestations</a>
                     <a href="{{ url('/secteurs') }}">Secteurs d'activité</a>
                     <a href="{{ url('/histoire') }}">Histoire</a>
@@ -88,11 +90,16 @@
                     <a href="{{ url('/contact') }}">Nous contacter</a>
                     <a href="{{ url('/home') }}">Recrutement</a>
                 </div>
-
+                <div class="links m-b-md">
+                    <a href="{{ url('/accueil') }}">
+                        Implantation
+                        <img src="Images/ImageCoordonnee/logoLoc.png" class="img-fluid rounded" alt="Image prestation manquante" style="max-height: 50px">
+                    </a>
+                </div>
             </div>
 
         </div>
-        <div class="flex-center" style="height:20%">
+        <div class="flex-center" style="height:10%">
             <div>
                 <p class="flex-center">Tel : 0820 205 122</p>
                 <p>Copyright © Limpilux 2019 - Tous droits réservés</p>
