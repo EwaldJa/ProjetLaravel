@@ -6,7 +6,7 @@
 
 @section('titreItem')
 
-    <div class="row mt-5">
+    <div class="row mt-5 sansmarge">
         <div class="d-inline-block col-md-10 offset-md-1 col-lg-8 offset-lg-2 grisclair">
             <div class="card mt-3 mb-3" style="width: 25em">
                 <div class="card-body">
@@ -19,7 +19,7 @@
 @endsection
 
 @section('contenu')
-        <div class="row mt-2">
+        <div class="row mt-2 sansmarge">
             <div class="d-inline-block col-md-10 offset-md-1 col-lg-8 offset-lg-2 grisclair">
                 <div class="d-none">{{$i = 0}}</div>
                 @foreach ($lesServices as $service)
