@@ -51,7 +51,7 @@ class SecteurController extends Controller
         }
         $monSecteurActiviteDAO->updateSecteurActivite($monSecteurActivite, $monImage);
         $lesSecteurActivites = $monSecteurActiviteDAO->getLesSecteurActivites();
-        return redirect('SecteurActivites');
+        return redirect('secteurs');
     }
 
     public function creationSecteurActivite(InsertionSecteurActiviteRequest $request){
@@ -65,7 +65,7 @@ class SecteurController extends Controller
         }
         $monSecteurActiviteDAO = new SecteurActiviteDAO();
         $monSecteurActiviteDAO->creationSecteurActivite($monSecteurActivite, $monImage);
-        return redirect('SecteurActivites');
+        return redirect('secteurs');
     }
 
     public function supprSecteurActivite(InsertionSecteurActiviteRequest $request) {
@@ -76,7 +76,7 @@ class SecteurController extends Controller
         $monSecteurActivite->setDescriptionSecteurActivite($request->input('description_SecteurActivite'.$monSecteurActivite->getIdSecteurActivite()));
         $monSecteurActivite->setLesImages($monSecteurActiviteDAO->getLesImages($monSecteurActivite->getIdSecteurActivite()));
         $monSecteurActiviteDAO->supprSecteurActivite($monSecteurActivite);
-        return redirect('SecteurActivites');
+        return redirect('secteurs');
     }
 
     public function supprImage(SuppressionImageSecteurActiviteRequest $request) {
@@ -84,7 +84,7 @@ class SecteurController extends Controller
         $monImage -> setIdImage($request->input('id_Image'));
         $monSecteurActiviteDAO = new SecteurActiviteDAO();
         $monSecteurActiviteDAO -> supprImage($monImage);
-        return redirect('SecteurActivites');
+        return redirect('secteurs');
     }
 
 }
