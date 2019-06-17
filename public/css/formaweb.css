@@ -1,5 +1,5 @@
 body {
-    background-color: #bbb;
+    background-color: #bebebe;
 }
 .footer {
     text-align: center;
@@ -27,13 +27,19 @@ body {
     src:                 url('font/AlikeAngular-Regular.ttf');
 }
 .card-body{
+
     font-family: 'Alike-Regular';
 }
-.card-body h1{
+h1{
+    text-underline: #cf0000;
+    align-items: center;
+    display: flex;
+    justify-content: center;
     font-family:'AlikeAngular-Regular';
-    color: #bf0000;
+    color: #222;
 }
 .card-body h5{
+
     font-family:'AlikeAngular-Regular';
     color: #bf0000;
 }
