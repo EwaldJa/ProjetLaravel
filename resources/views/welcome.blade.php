@@ -4,11 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Limpilux</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+    {!! Html::style('lib/bootstrap/bootstrap.min.css') !!}
         <!-- Styles -->
         <style>
             html, body {
@@ -40,15 +40,16 @@
                 top: 18px;
             }
 
-            .content {
+            .content, .foot {
                 text-align: center;
             }
+
 
             .title {
                 font-size: 84px;
             }
 
-            .links > a {
+            .links a {
                 color: #636b6f;
                 padding: 0 25px;
                 font-size: 13px;
@@ -66,15 +67,10 @@
                 margin-top: 0px;
                 margin-bottom: 0px;
             }
-            @media only screen and (max-width: 600px) {
-                .login{
-                    margin-bottom: 50px;
-                }
-            }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref" style="height:80%">
+        <div class="flex-center position-ref" >
             @if (Route::has('login'))
                 <div class="top-right links login">
                     @auth
@@ -93,41 +89,45 @@
                 </div>
             @endif
 
-            <div class="content" style="margin-top: 50px">
+            <div class="content mt-5 pt-5" >
                 <div class="title ">
-                    <img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Logo entreprise manquant" width="90%">
+                    <img src="Images/ImageCoordonnee/logo_ombre_transparent.png" class="img-fluid rounded" alt="Logo entreprise manquant" width="80%">
                 </div>
                 <div class="links mt-5 m-b-md">
-                        Nettoyage et entretien de locaux à Paris
+                        Nettoyage et entretien de locaux à Paris et Ile de France
                 </div>
-                <div class="links m-b-md">
-                    <a href="{{ url('/prestations') }}">Prestations</a>
-                    <a href="{{ url('/secteurs') }}">Secteurs d'activité</a>
-                    <a href="{{ url('/histoire') }}">Histoire</a>
-                    <a href="{{ url('/engagements') }}">Engagements</a>
-                    <a href="{{ url('/contact') }}">
+                <div class="links m-b-md row">
+                    <a class="col-md-2 mt-2" href="{{ url('/prestations') }}">Prestations</a>
+
+                     <a class=" col-md-2 mt-2" href="{{ url('/secteurs') }}">Secteurs d'activité</a>
+
+                    <a class="col-md-2 mt-2" href="{{ url('/histoire') }}">Histoire</a>
+
+                    <a  class="col-md-2 mt-2" href="{{ url('/engagements') }}">Engagements</a>
+
+                     <a class="col-md-2 mt-2" href="{{ url('/contact') }}">
                         @auth Demandes de contact
                         @else Nous contacter
                         @endauth
                     </a>
+                    <a class="col-md-2 mt-1"  href="{{ url('/implantation') }}">
+                        Implantation
+                        <!--   <img src="Images/ImageCoordonnee/logoLoc.png" class="img-fluid rounded" alt="Logo Maps manquant" style="max-height: 50px"> -->
+                    </a>
                 <!--    <a href="{{ url('/home') }}">Recrutement</a> -->
                 </div>
-                <div class="links m-b-md foot">
-                    <a href="{{ url('/implantation') }}">
-                        Implantation
-                        <img src="Images/ImageCoordonnee/logoLoc.png" class="img-fluid rounded" alt="Logo Maps manquant" style="max-height: 50px">
-                    </a>
-                </div>
-            </div>
 
-        </div>
-        <div class="flex-center " style="height:20%">
-            <div class="foot">
-                <p class="flex-center">Tel : 0820 205 122</p>
-                <p class="flex-center">14 avenue de l’Opéra 75001 PARIS</p>
-                <p class="flex-center">1 Place Paul Verlaine 92100 BOULOGNE BILLANCOURT</p>
-                <p class="flex-center">Copyright © Limpilux 2019 - Tous droits réservés</p>
-            </div>
-        </div>
-    </body>
-</html>
+              </div>
+
+          </div>
+          <div class="flex-center mt-5 pt-5">
+              <div class="foot row">
+                  <p class="flex-center col-sm-12">Tel : 0820 205 122</p>
+                  <p class="flex-center col-sm-12">14 avenue de l’Opéra 75001 PARIS</p>
+                  <p class="flex-center col-sm-12">1 Place Paul Verlaine 92100 BOULOGNE BILLANCOURT</p>
+                  <p class="flex-center col-sm-12">Copyright © Limpilux 2019</p>
+                  <p class="flex-center col-sm-12">Tous droits réservés</p>
+              </div>
+          </div>
+      </body>
+  </html>
